@@ -1,0 +1,36 @@
+---
+layout: base.njk
+title: All Posts
+permalink: /posts/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}
+eleventyNavigation:
+  key: Posts 📚
+  order: 1
+pagination:
+  data: collections.posts
+  size: 2
+  reverse: true
+  alias: posts
+---
+<main>
+  <h1>{{ title }}</h1>
+  <div>
+  {%- for post in posts %}
+    <a href="{{ post.url | url }}">
+      <article>
+        <h2>{{ post.data.title }}</h2>
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <p>{{ post.data.description }}</p>
+      </article>
+    </a>
+  {% endfor -%}
+  </div>
+  <nav>
+  {% if pagination.previousPageHref %}
+    <a class="pagination-item prev" rel="prev" href="{{ pagination.previousPageHref }}">← Newer</a>
+  {% endif %}
+  <span>Page {{ pagination.pageNumber + 1 }}</span>
+  {% if pagination.nextPageHref %}
+    <a class="pagination-item next" rel="next" href="{{ pagination.nextPageHref }}">Older →</a>
+  {% endif %}
+  </nav>
+</main>

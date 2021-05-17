@@ -1,0 +1,26 @@
+---
+layout: base.njk
+eleventyNavigation:
+  key: Home 🏠
+  order: 0
+---
+<main>
+  <header>
+    <h1>Hey, I'm Will 👋</h1>
+    <p>I'm a programmer and student at Princeton University.</p>
+  </header>
+  <section>
+    <h2>Latest Posts</h2>
+    <div>
+      {% for post in collections.posts | head(-3) | reverse %}
+      <a href="{{ post.url | url }}">
+        <article>
+          <h3>{{ post.data.title }}</h3>
+          <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <p>{{ post.data.description }}</p>
+        </article>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</main>

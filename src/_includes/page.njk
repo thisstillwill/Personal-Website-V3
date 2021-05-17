@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<main>
+    <article>
+        <header>
+            <h1>{{ title }}</h1>
+            {% if tags and tags.includes("posts") %}
+            <p>Posted <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+            {% endif %}
+        </header>
+        <div>
+            {{ content | safe }}
+        </div>
+    </article>
+</main>
