@@ -27,7 +27,6 @@ module.exports = function (eleventyConfig) {
 
     // Pass through static files to output
     eleventyConfig.addPassthroughCopy("./src/static");
-    eleventyConfig.addPassthroughCopy("./src/styles/*.css");
 
     return {
         // Pre-process *.md files with nunjucks

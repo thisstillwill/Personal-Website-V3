@@ -2,7 +2,7 @@
 layout: page.njk
 title: About Me
 eleventyNavigation:
-  key: About 👀
+  key: 👀 About
   order: 3
 ---
 

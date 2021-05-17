@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rm -rf build && mkdir build && postcss style.css > build/style.css && eleventy --serve --quiet",
+    "build": "rm -rf build && eleventy && NODE_ENV=production postcss style.css > build/style.css"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,11 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.2.0",
-    "luxon": "^1.27.0"
+    "autoprefixer": "^10.2.5",
+    "cssnano": "^5.0.2",
+    "luxon": "^1.27.0",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.2"
   }
 }

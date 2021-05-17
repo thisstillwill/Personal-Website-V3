@@ -2,7 +2,7 @@
 layout: page.njk
 title: Contact Me
 eleventyNavigation:
-  key: Contact 📫
+  key: 📫 Contact
   order: 4
 ---
 
