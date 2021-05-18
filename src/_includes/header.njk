@@ -1,8 +1,8 @@
-<header class="">
-    <a href="{{ '/' | url }}">W://iam</a>
-    <nav>
+<header class="flex flex-col max-w-screen-lg p-6 md:flex-row md:items-center md:mx-auto">
+    <a class="text-3xl font-medium hover:text-green-500 focus:text-green-500" href="{{ '/' | url }}">William Svoboda</a>
+    <nav class="flex gap-4 mt-2 overflow-x-auto md:ml-auto md:mt-0">
         {%- for entry in collections.all | eleventyNavigation %}
-        <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+        <a class="font-medium whitespace-nowrap md:text-lg hover:text-green-500 focus:text-green-500 {{ 'underline' if entry.url == page.url }}" href="{{ entry.url | url }}">{{ entry.title }}</a>
         {%- endfor %}
     </nav>
 </header>

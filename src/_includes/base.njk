@@ -8,7 +8,7 @@
         <meta name="description" content="{{ description or metadata.description }}">
         <link rel="stylesheet" href="/style.css"/>
     </head>
-    <body>
+    <body class="text-gray-900 bg-gray-50">
         {% include "header.njk" %}
         {{ content | safe }}
         {% include "footer.njk" %}
