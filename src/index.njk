@@ -6,7 +6,7 @@ eleventyNavigation:
 ---
 <main>
   <header class="bg-blue-600 text-gray-50">
-    <div class="max-w-screen-xl p-6 py-8 mx-auto lg:py-12">
+    <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
       <h1 class="text-4xl font-medium lg:text-5xl">Hey, I'm Will&nbsp👋</h1>
       <p class="mt-2 leading-normal max-w-prose lg:text-xl lg:mt-4 lg:leading-relaxed">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
     </div>
@@ -18,7 +18,7 @@ eleventyNavigation:
       <a class="transition duration-150 ease-in-out transform hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ post.url | url }}">
         <article class="h-full p-4 border-2 border-blue-600 rounded-lg">
           <h3 class="text-2xl">{{ post.data.title }}</h3>
-          <time class="block mt-2 font-mono text-sm" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          <time class="block mt-1 font-mono text-gray-600" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
           <p class="mt-2 leading-normal">{{ post.data.description }}</p>
         </article>
       </a>

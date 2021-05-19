@@ -7,30 +7,36 @@ eleventyNavigation:
   order: 1
 pagination:
   data: collections.posts
-  size: 2
+  size: 4
   reverse: true
   alias: posts
 ---
 <main>
-  <h1>{{ title }}</h1>
-  <div>
+  <header class="bg-blue-600 text-gray-50">
+    <div class="max-w-screen-xl px-6 py-8 mx-auto md:text-center">
+      <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
+    </div>
+  </header>
+  <div class="grid max-w-screen-xl grid-flow-row gap-8 px-6 mx-auto my-8 mt-6 sm:grid-cols-2 lg:grid-cols-3 lg:mt-12">
   {%- for post in posts %}
-    <a href="{{ post.url | url }}">
-      <article>
-        <h2>{{ post.data.title }}</h2>
-        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-        <p>{{ post.data.description }}</p>
+    <a class="transition duration-150 ease-in-out transform hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ post.url | url }}">
+      <article class="h-full p-4 border-2 border-blue-600 rounded-lg">
+        <h2 class="text-2xl">{{ post.data.title }}</h3>
+        <time class="block mt-1 font-mono text-gray-600" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <p class="mt-2 leading-normal">{{ post.data.description }}</p>
       </article>
     </a>
   {% endfor -%}
   </div>
-  <nav>
+  {% if pagination.pages.length > 1 %}
+  <nav class="my-12 text-lg text-center">
   {% if pagination.previousPageHref %}
-    <a class="pagination-item prev" rel="prev" href="{{ pagination.previousPageHref }}">← Newer</a>
+    <a class="mr-3 hover:underline focus:underline" rel="prev" href="{{ pagination.previousPageHref }}">← Newer</a>
   {% endif %}
-  <span>Page {{ pagination.pageNumber + 1 }}</span>
+    <span class="font">Page {{ pagination.pageNumber + 1 }}</span>
   {% if pagination.nextPageHref %}
-    <a class="pagination-item next" rel="next" href="{{ pagination.nextPageHref }}">Older →</a>
+    <a class="ml-3 hover:underline focus:underline" rel="next" href="{{ pagination.nextPageHref }}">Older →</a>
+  {% endif %}
   {% endif %}
   </nav>
 </main>
