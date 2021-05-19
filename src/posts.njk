@@ -30,11 +30,11 @@ pagination:
 {% if pagination.pages.length > 1 %}
 <nav class="mt-12 text-lg text-center">
 {% if pagination.previousPageHref %}
-  <a class="mr-3 hover:underline focus:underline" rel="prev" href="{{ pagination.previousPageHref }}">← Newer</a>
+  <a class="mr-4 hover:underline focus:underline" rel="prev" href="{{ pagination.previousPageHref }}">← Newer</a>
 {% endif %}
   <span class="font">Page {{ pagination.pageNumber + 1 }}</span>
 {% if pagination.nextPageHref %}
-  <a class="ml-3 hover:underline focus:underline" rel="next" href="{{ pagination.nextPageHref }}">Older →</a>
+  <a class="ml-4 hover:underline focus:underline" rel="next" href="{{ pagination.nextPageHref }}">Older →</a>
 {% endif %}
 {% endif %}
 </nav>

@@ -6,7 +6,8 @@ layout: base.njk
         <div class="max-w-screen-xl px-6 py-8 mx-auto md:text-center lg:py-12">
             <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
             {% if tags and tags.includes("posts") %}
-            <p class="mt-2 font-mono lg:mt-4 lg:text-lg">Posted <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
+            <p class="mt-2 font-mono lg:mt-4 lg:text-lg">Posted <time datetime="{{ page.date | htmlDateString }}">{{
+                    page.date | readableDate }}</time></p>
             {% endif %}
         </div>
     </header>
@@ -14,4 +15,3 @@ layout: base.njk
         {{ content | safe }}
     </div>
 </article>
-
