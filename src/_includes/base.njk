@@ -11,7 +11,9 @@
     <body class="flex flex-col min-h-screen text-gray-900 bg-gray-50">
         <div class="flex-auto">
             {% include "header.njk" %}
-            {{ content | safe }}
+            <main>
+                {{ content | safe }}
+            </main>
         </div>
         {% include "footer.njk" %}
     </body>

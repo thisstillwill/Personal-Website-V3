@@ -2,7 +2,7 @@
     <a class="text-3xl font-medium hover:text-blue-600 focus:text-blue-600" href="{{ '/' | url }}">William Svoboda</a>
     <nav class="flex mt-2 overflow-x-auto md:ml-auto md:mt-0">
         {%- for entry in collections.all | eleventyNavigation %}
-        <a class="font-medium whitespace-nowrap md:text-lg hover:text-blue-600 focus:text-blue-600 md:ml-4 mr-4 {{ 'underline' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) }}" href="{{ entry.url | url }}">{{ entry.title }}</a>
+        <a class="font-medium whitespace-nowrap text-lg hover:text-blue-600 focus:text-blue-600 mr-4 md:mr-0 md:ml-8 {{ 'underline' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) }}" href="{{ entry.url | url }}">{{ entry.title }}</a>
         {%- endfor %}
     </nav>
 </header>
