@@ -7,10 +7,10 @@ eleventyNavigation:
 <header class="bg-blue-600 text-gray-50">
   <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
     <h1 class="text-4xl font-medium lg:text-5xl">Hey, I'm Will&nbsp👋</h1>
-    <p class="mt-4 text-lg leading-snug max-w-prose lg:text-xl lg:mt-4 lg:leading-relaxed">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
+    <p class="mt-4 text-lg leading-snug max-w-prose lg:text-xl lg:leading-relaxed">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
   </div>
 </header>
-<section class="max-w-screen-xl px-6 mx-auto mt-6 lg:mt-12">
+<section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
   <h2 class="text-3xl lg:text-4xl">Latest Posts</h2>
   <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
     {% for post in collections.posts | head(-3) | reverse %}
@@ -25,3 +25,17 @@ eleventyNavigation:
   </div>
 </section>
 
+<section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
+  <h2 class="text-3xl lg:text-4xl">Featured Projects</h2>
+  <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+    {% for project in collections.projects | head(-3) | reverse %}
+    <a class="transition duration-150 ease-in-out transform hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ project.url | url }}">
+      <article class="h-full p-4 border-2 border-blue-600 rounded-lg">
+        <h3 class="text-2xl">{{ project.data.title }}</h3>
+        <time class="block mt-1 font-mono text-gray-600" datetime="{{ project.date | dateYear }}">{{ project.date | dateYear }}</time>
+        <p class="mt-2 leading-normal">{{ project.data.description }}</p>
+      </article>
+    </a>
+    {% endfor %}
+  </div>
+</section>

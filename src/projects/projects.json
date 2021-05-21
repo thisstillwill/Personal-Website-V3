@@ -1,0 +1,7 @@
+{
+    "layout": "page.njk",
+    "permalink": "/projects/{{ title | slug }}/",
+    "tags": [
+        "projects"
+    ]
+}
