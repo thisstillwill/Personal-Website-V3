@@ -3,7 +3,7 @@ layout: base.njk
 ---
 <article>
     <header class="bg-blue-600 text-gray-50">
-        <div class="max-w-screen-xl px-6 py-8 mx-auto md:text-center lg:py-12">
+        <div class="max-w-screen-xl px-6 py-8 mx-auto sm:text-center lg:py-12">
             <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
             {% if tags and tags.includes("posts") %}
             <p class="mt-2 font-mono lg:mt-4 lg:text-lg">Posted <time datetime="{{ page.date | htmlDateString }}">{{
@@ -11,9 +11,7 @@ layout: base.njk
             {% endif %}
         </div>
     </header>
-    <div class="px-6 mx-auto mt-8 prose md:mt-12 prose-blue max-w-prose lg:prose-lg">
+    <div class="px-6 mx-auto mt-8 prose sm:mt-12 prose-blue lg:prose-lg">
         {{ content | safe }}
     </div>
 </article>
-
-<!-- px-6 mx-auto mt-8 prose-lg md:mt-12 prose-blue max-w-prose lg:prose-xl -->
