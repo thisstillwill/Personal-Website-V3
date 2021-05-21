@@ -20,7 +20,7 @@ pagination:
     {% for project in projects %}
     <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ project.url | url }}">
       <article class="h-full p-4">
-        <h3 class="text-2xl">{{ project.data.title }}</h3>
+        <h2 class="text-2xl">{{ project.data.title }}</h3>
         <time class="block mt-1 font-mono text-gray-600" datetime="{{ project.date | dateYear }}">{{ project.date | dateYear }}</time>
         <p class="mt-2 leading-normal">{{ project.data.description }}</p>
       </article>
