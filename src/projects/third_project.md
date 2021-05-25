@@ -2,6 +2,7 @@
 title: My Third Project
 description: This is my third project.
 date: 2019-01-01
+tags: featured
 ---
 
 ## Ego singula

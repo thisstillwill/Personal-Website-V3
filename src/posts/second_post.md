@@ -2,6 +2,8 @@
 title: My Second Post
 description: This is a post on My Blog about leveraging agile frameworks.
 date: 2018-07-04
+tags:
+  - number 2
 ---
 
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate

@@ -2,6 +2,7 @@
 title: My Sixth Project
 description: This is my sixth project.
 date: 2021-01-01
+tags: featured
 ---
 
 ## Postes ambarum ex Thetidis arce

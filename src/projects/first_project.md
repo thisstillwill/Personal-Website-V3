@@ -2,6 +2,9 @@
 title: My First Project
 description: This is my first project.
 date: 2018-01-01
+tags: 
+    - featured
+    - second tag
 ---
 
 ## Fluctu mihi et parvumque fixit

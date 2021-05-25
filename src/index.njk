@@ -27,7 +27,7 @@ eleventyNavigation:
 <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
   <h2 class="text-3xl lg:text-4xl">Featured Projects</h2>
   <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
-    {% for project in collections.projects | head(-3) | reverse %}
+    {% for project in collections.projects | filterInCollection(collections.featured) | reverse %}
     <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ project.url | url }}">
       <article class="h-full p-4">
         <h3 class="text-2xl">{{ project.data.title }}</h3>

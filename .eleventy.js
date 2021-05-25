@@ -16,6 +16,15 @@ module.exports = function (eleventyConfig) {
         return array.slice(0, n);
     });
 
+    eleventyConfig.addFilter("filterInCollection", function(array, collection) {
+        return (array || []).filter(o => collection.includes(o))
+    });
+
+    eleventyConfig.addFilter("filterTagList", tags => {
+        // should match the list in tags.njk
+        return (tags || []).filter(tag => ["all", "featured", "posts", "projects", "pages"].indexOf(tag) === -1);
+    });
+
     eleventyConfig.addFilter("dateYear", dateObj => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("yyyy");
     });

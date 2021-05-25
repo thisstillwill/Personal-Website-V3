@@ -5,9 +5,24 @@ layout: base.njk
     <header class="bg-blue-600 text-gray-50">
         <div class="max-w-screen-xl px-6 py-8 mx-auto sm:text-center lg:py-12">
             <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
-            {% if tags and tags.includes("posts") %}
-            <p class="mt-2 font-mono lg:mt-4 lg:text-lg">Posted <time datetime="{{ page.date | htmlDateString }}">{{
-                    page.date | readableDate }}</time></p>
+            {% if tags %}
+            {% if tags.includes("posts") %}
+            <p class="mt-2 font-mono text-base lg:mt-4 lg:text-lg">Posted <time
+                    datetime="{{ page.date | htmlDateString }}">{{
+                    page.date | readableDate }}</time>
+                {% if (tags | filterTagList).length > 0 %}
+                ·
+                {%- for tag in tags | filterTagList -%}
+                {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+                <a href="{{ tagUrl | url }}"> <span class="hover:underline">#{{ tag }}</span>{{ ',' if loop.index <
+                        (tags | filterTagList).length }}</a>
+                        {%- endfor %}
+                        {% endif %}
+            </p>
+            {% elif tags.includes("projects") %}
+            <p class="mt-2 font-mono lg:mt-4 lg:text-lg">Completed <time datetime="{{ page.date | dateYear }}">{{
+                    page.date | dateYear }}</time></p>
+            {% endif %}
             {% endif %}
         </div>
     </header>
