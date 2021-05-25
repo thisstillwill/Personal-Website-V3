@@ -1,172 +1,161 @@
-/*
-Name:   Base2Tone-Evening Dark
-Author: by Bram de Haan, adapted from DuoTone themes by Simurai (http://simurai.com/projects/2016/01/01/duotone-themes)
-
-http://atelierbram.github.io/Base2Tone-prism/demo/evening/dark/
-Prism template for Base2Tone by Bram de Haan (https://github.com/atelierbram/Base2Tone-prism)
-Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
-*/
-
 code[class*="language-"],
 pre[class*="language-"] {
-  font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
-  font-size: 14px;
-  line-height: 1.375;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
-  background: #2a2734;
-  color: #9a86fd;
-}
-
-pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
-  text-shadow: none;
-  background: #6a51e6;
-}
-
-pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
-code[class*="language-"]::selection, code[class*="language-"] ::selection {
-  text-shadow: none;
-  background: #6a51e6;
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-  padding: 1em;
-  margin: .5em 0;
-  overflow: auto;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1rem;
+    line-height: 1.85;
+    direction: ltr;
+    text-align: left;
+    word-spacing: normal;
+    tab-size: 4;
+    hyphens: none;
+    white-space: pre;
+    background: #1d1f21;
+    color: #f9f8f5;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6c6783;
+    color: #75715e;
 }
 
 .token.punctuation {
-  color: #6c6783;
-}
-
-.token.namespace {
-  opacity: .7;
-}
-
-.token.tag,
-.token.operator,
-.token.number {
-  color: #e09142;
+    color: #fefefe;
 }
 
 .token.property,
-.token.function {
-  color: #9a86fd;
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted,
+.token.class-name {
+    color: #ae81ff;
 }
 
-.token.tag-id,
-.token.selector,
-.token.atrule-id {
-  color: #eeebff;
-}
-
-code.language-javascript,
-.token.attr-name {
-  color: #c4b9fe;
-}
-
-code.language-css,
-code.language-scss,
 .token.boolean,
+.token.number {
+    color: #00e0e0;
+}
+
+.token.selector,
+.token.attr-name,
 .token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #abe338;
+}
+
+.token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
-.language-scss .token.string,
 .style .token.string,
-.token.attr-value,
-.token.keyword,
-.token.control,
-.token.directive,
-.token.unit,
-.token.statement,
-.token.regex,
-.token.atrule {
-  color: #ffcc99;
-}
-
-.token.placeholder,
 .token.variable {
-  color: #ffcc99;
+    color: #00e0e0;
 }
 
-.token.deleted {
-  text-decoration: line-through;
+.token.atrule,
+.token.attr-value,
+.token.function {
+    color: #ffd700;
 }
 
-.token.inserted {
-  border-bottom: 1px dotted #eeebff;
-  text-decoration: none;
+.token.keyword {
+    color: #66d9ef;
 }
 
-.token.italic {
-  font-style: italic;
+.token.regex,
+.token.important {
+    color: #ffd700;
 }
 
 .token.important,
 .token.bold {
-  font-weight: bold;
+    font-weight: bold;
 }
-
-.token.important {
-  color: #c4b9fe;
+.token.italic {
+    font-style: italic;
 }
 
 .token.entity {
-  cursor: help;
+    cursor: help;
 }
 
-pre > code.highlight {
-  outline: .4em solid #8a75f5;
-  outline-offset: .4em;
+/* https://github.com/11ty/eleventy-base-blog/blob/master/css/index.css */
+code {
+    word-break: break-all;
+}
+.highlight-line {
+    display: block;
+    text-decoration: none; /* override del, ins, mark defaults */
+    color: inherit; /* override del, ins, mark defaults */
+}
+/* allow highlighting empty lines */
+.highlight-line:empty:before {
+    content: " ";
+}
+/* avoid double line breaks when using display: block; */
+.highlight-line + br {
+    display: none;
 }
 
-/* overrides color-values for the Line Numbers plugin
- * http://prismjs.com/plugins/line-numbers/
- */
-.line-numbers .line-numbers-rows {
-  border-right-color: #363342;
+.highlight-line-isdir {
+    color: #b0b0b0;
+    background-color: #222;
+}
+.highlight-line-active {
+    background-color: #444;
+    background-color: hsla(0, 0%, 27%, 0.8);
+}
+.highlight-line-add {
+    background-color: #45844b;
+}
+.highlight-line-remove {
+    background-color: #902f2f;
 }
 
-.line-numbers-rows > span:before {
-  color: #363342;
+@media screen and (-ms-high-contrast: active) {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        color: windowText;
+        background: window;
+    }
+
+    :not(pre) > code[class*="language-"],
+    pre[class*="language-"] {
+        background: window;
+    }
+
+    .token.important {
+        background: highlight;
+        color: window;
+        font-weight: normal;
+    }
+
+    .token.atrule,
+    .token.attr-value,
+    .token.function,
+    .token.keyword,
+    .token.operator,
+    .token.selector {
+        font-weight: bold;
+    }
+
+    .token.attr-value,
+    .token.comment,
+    .token.doctype,
+    .token.function,
+    .token.keyword,
+    .token.operator,
+    .token.property,
+    .token.string {
+        color: highlight;
+    }
+
+    .token.attr-value,
+    .token.url {
+        font-weight: normal;
+    }
 }
-
-/* overrides color-values for the Line Highlight plugin
- * http://prismjs.com/plugins/line-highlight/
- * alpha transparency in 8 digits hex notation coming to a browser near you soon:
- * https://drafts.csswg.org/css-color/#hex-notation
- */
-.line-highlight {
-  background: #e0914233;
-  background: linear-gradient(to right, #e0914233 70%, #e0914200);
-}
-
-

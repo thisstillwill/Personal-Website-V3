@@ -6,7 +6,7 @@ date: 2018-10-30
 
 Literally just for pagination dude.
 
-```js
+```js/1-2
 function myFunction() {
   // …
   return true;
