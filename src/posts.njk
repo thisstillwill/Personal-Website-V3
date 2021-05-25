@@ -16,18 +16,18 @@ pagination:
     <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
   </div>
 </header>
-<div class="grid max-w-screen-xl grid-flow-row gap-8 px-6 mx-auto mt-12 sm:grid-cols-2 lg:grid-cols-3">
-  {%- for post in posts %}
-
-  {% card 
-    post.url | url, 
-    post.data.title, 
-    post.date | htmlDateString, 
-    post.date | readableDate, 
-    post.data.description 
-  %}
-
-{% endfor -%}
+<div class="max-w-screen-xl px-6 mx-auto">
+  {% cardContainer %}
+    {%- for post in posts %}
+    {% card 
+      post.url | url, 
+      post.data.title, 
+      post.date | htmlDateString, 
+      post.date | readableDate, 
+      post.data.description 
+    %}
+    {% endfor -%}
+  {% endcardContainer %}
 </div>
 {% if pagination.pages.length > 1 %}
 <nav class="mt-12 text-lg text-center">
