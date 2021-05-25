@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
         "sectionContainer",
         (content, title) => `
             <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
-                <h2 class="text-3xl lg:text-4xl">${title}</h2>
+                <h2 class="text-3xl lg:text-4xl border-b-2 pb-4 border-gray-900 border-dashed">${title}</h2>
                 ${content}
             </section>
         `
