@@ -8,6 +8,16 @@ module.exports = function (eleventyConfig) {
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
 
+    // Card container
+    eleventyConfig.addPairedShortcode(
+        "cardContainer",
+        (content) => `
+            <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+                ${content}
+            </div>
+        `
+    );
+
     // Card component
     eleventyConfig.addShortcode(
         "card",

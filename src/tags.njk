@@ -22,9 +22,8 @@ pagination:
 </header>
 <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
   <h2 class="text-3xl lg:text-4xl">Tagged Posts</h2>
-  <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+  {% cardContainer %}
     {% for post in collections[ tag ] | filterInCollection(collections.posts) | reverse %}
-    
     {% card 
       post.url | url, 
       post.data.title, 
@@ -32,15 +31,13 @@ pagination:
       post.date | readableDate, 
       post.data.description 
     %}
-
     {% endfor -%}
-  </div>
+  {% endcardContainer %}
 </section>
 <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
   <h2 class="text-3xl lg:text-4xl">Tagged Projects</h2>
-  <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+  {% cardContainer %}
     {% for project in collections[ tag ] | filterInCollection(collections.projects) | reverse %}
-    
     {% card 
       project.url | url, 
       project.data.title, 
@@ -48,7 +45,6 @@ pagination:
       project.date | dateYear, 
       project.data.description 
     %}
-
     {% endfor -%}
-  </div>
+  {% endcardContainer %}
 </section>
