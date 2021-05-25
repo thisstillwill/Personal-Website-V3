@@ -1,9 +1,11 @@
 const { DateTime } = require("luxon");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
     // Register plugins
     eleventyConfig.addPlugin(eleventyNavigationPlugin);
+    eleventyConfig.addPlugin(syntaxHighlight);
 
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
@@ -92,6 +94,7 @@ module.exports = function (eleventyConfig) {
 
     // Pass through static files to output
     eleventyConfig.addPassthroughCopy("./src/static");
+    eleventyConfig.addPassthroughCopy("./src/*.css");
 
     return {
         // Pre-process *.md files with nunjucks
