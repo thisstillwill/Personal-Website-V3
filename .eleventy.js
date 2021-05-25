@@ -8,6 +8,20 @@ module.exports = function (eleventyConfig) {
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
 
+    // Card component
+    eleventyConfig.addShortcode(
+        "card",
+        (link, title, dateTime, displayTime, description) => `
+            <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="${link}">
+                <article class="h-full p-4">
+                    <h3 class="text-2xl">${title}</h3>
+                    <time class="block mt-1 font-mono text-gray-600" datetime="${dateTime}">${displayTime}</time>
+                    <p class="mt-2 leading-normal">${description}</p>
+                </article>
+            </a>
+        `
+    );
+
     // Get the first `n` elements of a collection.
     eleventyConfig.addFilter("head", (array, n) => {
         if (n < 0) {
@@ -16,23 +30,28 @@ module.exports = function (eleventyConfig) {
         return array.slice(0, n);
     });
 
-    eleventyConfig.addFilter("filterInCollection", function(array, collection) {
+    // Return only the elements present in another collection
+    eleventyConfig.addFilter("filterInCollection", function (array, collection) {
         return (array || []).filter(o => collection.includes(o))
     });
 
+    // Return only relevant tags
     eleventyConfig.addFilter("filterTagList", tags => {
         // should match the list in tags.njk
         return (tags || []).filter(tag => ["all", "featured", "posts", "projects", "pages"].indexOf(tag) === -1);
     });
 
+    // Get the year from a page's date
     eleventyConfig.addFilter("dateYear", dateObj => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("yyyy");
     });
 
+    // Generate a human-readable date string from a page's date
     eleventyConfig.addFilter("readableDate", dateObj => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd LLL yyyy");
     });
 
+    // Generate a valid date string from a page's date
     // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
     eleventyConfig.addFilter('htmlDateString', (dateObj) => {
         return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');

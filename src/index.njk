@@ -14,13 +14,15 @@ eleventyNavigation:
   <h2 class="text-3xl lg:text-4xl">Latest Posts</h2>
   <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
     {% for post in collections.posts | head(-3) | reverse %}
-    <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ post.url | url }}">
-      <article class="h-full p-4">
-        <h3 class="text-2xl">{{ post.data.title }}</h3>
-        <time class="block mt-1 font-mono text-gray-600" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-        <p class="mt-2 leading-normal">{{ post.data.description }}</p>
-      </article>
-    </a>
+    
+    {% card 
+      post.url | url, 
+      post.data.title, 
+      post.date | htmlDateString, 
+      post.date | readableDate, 
+      post.data.description 
+    %}
+
     {% endfor %}
   </div>
 </section>
@@ -28,13 +30,15 @@ eleventyNavigation:
   <h2 class="text-3xl lg:text-4xl">Featured Projects</h2>
   <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
     {% for project in collections.projects | filterInCollection(collections.featured) | reverse %}
-    <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="{{ project.url | url }}">
-      <article class="h-full p-4">
-        <h3 class="text-2xl">{{ project.data.title }}</h3>
-        <time class="block mt-1 font-mono text-gray-600" datetime="{{ project.date | dateYear }}">{{ project.date | dateYear }}</time>
-        <p class="mt-2 leading-normal">{{ project.data.description }}</p>
-      </article>
-    </a>
+    
+    {% card 
+      project.url | url, 
+      project.data.title, 
+      project.date | dateYear, 
+      project.date | dateYear, 
+      project.data.description 
+    %}
+
     {% endfor %}
   </div>
 </section>
