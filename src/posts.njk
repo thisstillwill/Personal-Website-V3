@@ -11,16 +11,15 @@ pagination:
   reverse: true
   alias: posts
 ---
-<header class="bg-blue-600 text-gray-50">
-  <div class="max-w-screen-xl px-6 py-8 mx-auto sm:text-center lg:py-12">
-    <h1 class="text-4xl lg:text-5xl">{{ title }}</h1>
-  </div>
-</header>
+{% hero %}
+  <h1 class="sm:text-center">{{ title }}</h1>
+{% endhero %}
 <div class="max-w-screen-xl px-6 mx-auto">
   {% cardContainer %}
     {%- for post in posts %}
     {% card 
       post.url | url, 
+      "h2", 
       post.data.title, 
       post.date | htmlDateString, 
       post.date | readableDate, 

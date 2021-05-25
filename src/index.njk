@@ -4,17 +4,16 @@ eleventyNavigation:
   key: 🏠 Home
   order: 0
 ---
-<header class="bg-blue-600 text-gray-50">
-  <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
-    <h1 class="text-4xl font-medium lg:text-5xl">Hey, I'm Will&nbsp👋</h1>
-    <p class="mt-4 text-lg leading-snug max-w-prose lg:text-xl lg:leading-relaxed">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
-  </div>
-</header>
+{% hero %}
+  <h1 class="font-medium">Hey, I'm Will&nbsp👋</h1>
+  <p class="mt-4 text-lg leading-snug lg:text-xl lg:leading-relaxed max-w-prose">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
+{% endhero %}
 {% sectionContainer "Latest Posts" %}
   {% cardContainer %}
     {% for post in collections.posts | head(-3) | reverse %}
     {% card 
-      post.url | url, 
+      post.url | url,
+      "h3", 
       post.data.title, 
       post.date | htmlDateString, 
       post.date | readableDate, 
@@ -28,6 +27,7 @@ eleventyNavigation:
     {% for project in collections.projects | filterInCollection(collections.featured) | reverse %}
     {% card 
       project.url | url, 
+      "h3", 
       project.data.title, 
       project.date | dateYear, 
       project.date | dateYear, 

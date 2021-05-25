@@ -8,6 +8,18 @@ module.exports = function (eleventyConfig) {
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
 
+    // Hero banner
+    eleventyConfig.addPairedShortcode(
+        "hero",
+        (content) => `
+            <header class="bg-blue-600 text-gray-50 text-4xl lg:text-5xl">
+                <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
+                    ${content}
+                </div>
+            </header>
+        `
+    );
+    
     // Section container
     eleventyConfig.addPairedShortcode(
         "sectionContainer",
@@ -32,10 +44,10 @@ module.exports = function (eleventyConfig) {
     // Card component
     eleventyConfig.addShortcode(
         "card",
-        (link, title, dateTime, displayTime, description) => `
+        (link, titleLevel, title, dateTime, displayTime, description) => `
             <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl" href="${link}">
                 <article class="h-full p-4">
-                    <h3 class="text-2xl">${title}</h3>
+                    <${titleLevel} class="text-2xl">${title}</${titleLevel}>
                     <time class="block mt-1 font-mono text-gray-600" datetime="${dateTime}">${displayTime}</time>
                     <p class="mt-2 leading-normal">${description}</p>
                 </article>
