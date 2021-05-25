@@ -10,8 +10,7 @@ eleventyNavigation:
     <p class="mt-4 text-lg leading-snug max-w-prose lg:text-xl lg:leading-relaxed">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbspUniversity</a>. The web is my hometown, and I love using code to make new things.</p>
   </div>
 </header>
-<section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
-  <h2 class="text-3xl lg:text-4xl">Latest Posts</h2>
+{% sectionContainer "Latest Posts" %}
   {% cardContainer %}
     {% for post in collections.posts | head(-3) | reverse %}
     {% card 
@@ -23,9 +22,8 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-</section>
-<section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
-  <h2 class="text-3xl lg:text-4xl">Featured Projects</h2>
+{% endsectionContainer %}
+{% sectionContainer "Latest Posts" %}
   {% cardContainer %}
     {% for project in collections.projects | filterInCollection(collections.featured) | reverse %}
     {% card 
@@ -37,4 +35,4 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-</section>
+{% endsectionContainer %}

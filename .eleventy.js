@@ -8,6 +8,17 @@ module.exports = function (eleventyConfig) {
     // https://www.11ty.dev/docs/data-deep-merge/
     eleventyConfig.setDataDeepMerge(true);
 
+    // Section container
+    eleventyConfig.addPairedShortcode(
+        "sectionContainer",
+        (content, title) => `
+            <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
+                <h2 class="text-3xl lg:text-4xl">${title}</h2>
+                ${content}
+            </section>
+        `
+    );
+    
     // Card container
     eleventyConfig.addPairedShortcode(
         "cardContainer",
