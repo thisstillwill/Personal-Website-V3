@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
             </header>
         `
     );
-    
+
     // Section container
     eleventyConfig.addPairedShortcode(
         "sectionContainer",
@@ -32,7 +32,7 @@ module.exports = function (eleventyConfig) {
             </section>
         `
     );
-    
+
     // Card container
     eleventyConfig.addPairedShortcode(
         "cardContainer",
@@ -46,16 +46,35 @@ module.exports = function (eleventyConfig) {
     // Card component
     eleventyConfig.addShortcode(
         "card",
-        (link, titleLevel, title, dateTime, displayTime, description) => `
+        (link, titleLevel, title, dateTime, displayTime, description, tags) => `
             <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl bg-gray-50" href="${link}">
                 <article class="h-full p-4">
                     <${titleLevel} class="text-2xl">${title}</${titleLevel}>
-                    <time class="block mt-1 font-mono text-gray-600" datetime="${dateTime}">${displayTime}</time>
+                    <time class="block mt-1 font-mono text-gray-600 text-sm" datetime="${dateTime}">${displayTime}</time>
                     <p class="mt-2 leading-normal">${description}</p>
+                    <ul class="flex flex-wrap mt-4">
+                        ${(tags || []).map(function (tag) {
+            return `<li class="mb-2 mr-2">
+                        <span class="bg-blue-600 text-gray-50 px-2 py-1 rounded-md text-xs inline-flex font-medium whitespace-nowrap">${tag}</span>
+                    </li>`
+        }).join("")
+            }
+                    </ul>
+
                 </article>
             </a>
         `
     );
+
+    // Create an array of all tags
+    eleventyConfig.addCollection("tagList", function (collection) {
+        let tagSet = new Set();
+        collection.getAll().forEach(item => {
+            (item.data.tags || []).forEach(tag => tagSet.add(tag));
+        });
+
+        return [...tagSet];
+    });
 
     // Get the first `n` elements of a collection.
     eleventyConfig.addFilter("head", (array, n) => {

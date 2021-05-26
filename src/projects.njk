@@ -23,7 +23,8 @@ pagination:
       project.data.title, 
       project.date | dateYear, 
       project.date | dateYear, 
-      project.data.description 
+      project.data.description, 
+      project.data.tags | filterTagList
     %}
     {% endfor %}
   {% endcardContainer %}

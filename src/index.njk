@@ -17,12 +17,13 @@ eleventyNavigation:
       post.data.title, 
       post.date | htmlDateString, 
       post.date | readableDate, 
-      post.data.description 
+      post.data.description, 
+      post.data.tags | filterTagList
     %}
     {% endfor %}
   {% endcardContainer %}
 {% endsectionContainer %}
-{% sectionContainer "Latest Posts" %}
+{% sectionContainer "Featured Projects" %}
   {% cardContainer %}
     {% for project in collections.projects | filterInCollection(collections.featured) | reverse %}
     {% card 
@@ -31,8 +32,19 @@ eleventyNavigation:
       project.data.title, 
       project.date | dateYear, 
       project.date | dateYear, 
-      project.data.description 
+      project.data.description, 
+      project.data.tags | filterTagList
     %}
     {% endfor %}
   {% endcardContainer %}
+{% endsectionContainer %}
+{% sectionContainer "All Tags" %}
+<ul class="flex flex-wrap max-w-xl mt-8">
+  {% for tag in collections.tagList | filterTagList %}
+  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  <li class="mb-2 mr-2">
+    <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium bg-blue-600 border-2 border-blue-600 rounded-md text-gray-50 whitespace-nowrap hover:bg-gray-50 hover:text-blue-600 focus:bg-gray-50 focus:text-blue-600">{{ tag }}</a>
+  </li>
+  {% endfor %}
+</ul>
 {% endsectionContainer %}

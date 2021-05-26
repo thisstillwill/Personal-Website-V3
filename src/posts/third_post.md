@@ -5,6 +5,9 @@ date: 2018-08-24
 tags:
   - second tag
   - number 2
+  - HTML
+  - CSS
+  - JS
 ---
 
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate

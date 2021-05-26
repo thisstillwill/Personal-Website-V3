@@ -23,7 +23,8 @@ pagination:
       post.data.title, 
       post.date | htmlDateString, 
       post.date | readableDate, 
-      post.data.description 
+      post.data.description, 
+      post.data.tags | filterTagList
     %}
     {% endfor -%}
   {% endcardContainer %}

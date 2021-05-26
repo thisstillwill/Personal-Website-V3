@@ -18,6 +18,7 @@ pagination:
 {% hero %}
   <h1 class="sm:text-center">{{ title }}</h1>
 {% endhero %}
+{% if (collections[ tag ] | filterInCollection(collections.posts)).length > 0 %}
 {% sectionContainer "Tagged Posts" %}
   {% cardContainer %}
     {% for post in collections[ tag ] | filterInCollection(collections.posts) | reverse %}
@@ -27,11 +28,14 @@ pagination:
       post.data.title, 
       post.date | htmlDateString, 
       post.date | readableDate, 
-      post.data.description 
+      post.data.description,
+      post.data.tags | filterTagList 
     %}
     {% endfor -%}
   {% endcardContainer %}
 {% endsectionContainer %}
+{% endif %}
+{% if (collections[ tag ] | filterInCollection(collections.projects)).length > 0 %}
 {% sectionContainer "Tagged Projects" %}
   {% cardContainer %}
     {% for project in collections[ tag ] | filterInCollection(collections.projects) | reverse %}
@@ -41,8 +45,10 @@ pagination:
       project.data.title, 
       project.date | dateYear, 
       project.date | dateYear, 
-      project.data.description 
+      project.data.description, 
+      project.data.tags | filterTagList
     %}
     {% endfor -%}
   {% endcardContainer %}
 {% endsectionContainer %}
+{% endif %}
