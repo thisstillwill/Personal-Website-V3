@@ -5,8 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rm -rf build && mkdir build && postcss style.css > build/style.css && eleventy --serve --quiet",
-    "build": "rm -rf build && eleventy && NODE_ENV=production postcss style.css > build/style.css"
+    "clean": "rm -rf build",
+    "dev": "NODE_ENV=development npm-run-all clean --parallel dev:*",
+    "dev:tailwind": "tailwindcss -i style.css -o build/style.css -w",
+    "dev:eleventy": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --quiet",
+    "build": "NODE_ENV=production npm-run-all clean --parallel build:*",
+    "build:postcss": "postcss style.css -o build/style.css",
+    "build:eleventy": "ELEVENTY_ENV=production npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",

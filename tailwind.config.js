@@ -1,6 +1,10 @@
 module.exports = {
-  purge: ['build/**/*.html'],
-  darkMode: false, // or 'media' or 'class'
+  mode: 'jit',
+  purge: [
+    './src/**/*.njk',
+    '.eleventy.js',
+  ],
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {},
   },
