@@ -22,7 +22,7 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600" href="{{ '/posts/' | url }}">See All Posts →</a></p>
+  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600 dark:hover:text-indigo-700 dark:focus:text-indigo-700" href="{{ '/posts/' | url }}">See All Posts →</a></p>
 {% endsectionContainer %}
 {% sectionContainer "Featured Projects" %}
   {% cardContainer %}
@@ -38,14 +38,14 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600" href="{{ '/projects/' | url }}">See All Projects →</a></p>
+  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600 dark:hover:text-indigo-700 dark:focus:text-indigo-700" href="{{ '/projects/' | url }}">See All Projects →</a></p>
 {% endsectionContainer %}
 {% sectionContainer "All Tags" %}
 <ul class="flex flex-wrap max-w-xl mt-8">
   {% for tag in collections.tagList | filterTagList %}
   {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
   <li class="mb-2 mr-2">
-    <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium bg-blue-600 border-2 border-blue-600 rounded-md text-gray-50 whitespace-nowrap hover:bg-gray-50 hover:text-blue-600 focus:bg-gray-50 focus:text-blue-600">{{ tag }}</a>
+    <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium bg-blue-600 border-2 border-blue-600 rounded-md text-gray-50 whitespace-nowrap hover:bg-gray-50 hover:text-blue-600 focus:bg-gray-50 focus:text-blue-600 dark:bg-indigo-700 dark:border-indigo-700 dark:hover:bg-gray-900 dark:hover:text-indigo-700 dark:focus:bg-gray-900 dark:focus:text-indigo-700">{{ tag }}</a>
   </li>
   {% endfor %}
 </ul>
