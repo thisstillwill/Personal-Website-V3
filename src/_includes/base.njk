@@ -17,14 +17,18 @@
         } else {
             document.documentElement.classList.remove('dark')
             localStorage.theme = 'light'
-        }
+        };
         function toggleDark() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.remove('dark')
                 localStorage.theme = 'light'
+                document.getElementById('light-icon').classList.remove('hidden')
+                document.getElementById('dark-icon').classList.add('hidden')
             } else {
                 document.documentElement.classList.add('dark')
                 localStorage.theme = 'dark'
+                document.getElementById('light-icon').classList.add('hidden')
+                document.getElementById('dark-icon').classList.remove('hidden')
             }
         }
     </script>
