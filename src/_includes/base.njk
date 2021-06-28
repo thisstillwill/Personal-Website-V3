@@ -1,21 +1,43 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="{{ metadata.author }}">
-        <title>{{ title or metadata.title }}</title>
-        <meta name="description" content="{{ description or metadata.description }}">
-        <link rel="stylesheet" href="/style.css" />
-        <link rel="stylesheet" href="/prism.css" />
-    </head>
-    <body class="flex flex-col min-h-screen text-gray-900 bg-gray-50 dark:bg-gray-900 dark:text-gray-50 selection:bg-blue-600 selection:text-gray-50 dark:selection:bg-indigo-700 dark:selection:text-gray-50">
-        <div class="flex-auto">
-            {% include "header.njk" %}
-            <main>
-                {{ content | safe }}
-            </main>
-        </div>
-        {% include "footer.njk" %}
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="{{ metadata.author }}">
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/prism.css" />
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+        } else {
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'light'
+        }
+        function toggleDark() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.remove('dark')
+                localStorage.theme = 'light'
+            } else {
+                document.documentElement.classList.add('dark')
+                localStorage.theme = 'dark'
+            }
+        }
+    </script>
+</head>
+
+<body class="flex flex-col min-h-screen text-gray-900 bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
+    <div class="flex-auto">
+        {% include "header.njk" %}
+        <main>
+            {{ content | safe }}
+        </main>
+    </div>
+    {% include "footer.njk" %}
+</body>
+
 </html>

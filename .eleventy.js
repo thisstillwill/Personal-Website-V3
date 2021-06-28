@@ -14,7 +14,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPairedShortcode(
         "hero",
         (content) => `
-            <header class="bg-blue-600 text-gray-50 text-4xl lg:text-5xl dark:bg-indigo-700 selection:bg-gray-50 selection:text-blue-600 dark:selection:bg-gray-50 dark:selection:text-indigo-700">
+            <header class="bg-blue-600 text-gray-50 text-4xl lg:text-5xl dark:bg-indigo-700">
                 <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
                     ${content}
                 </div>

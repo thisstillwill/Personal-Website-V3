@@ -6,7 +6,7 @@ module.exports = {
     './src/**/*.njk',
     '.eleventy.js',
   ],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
       typography: (theme) => ({
