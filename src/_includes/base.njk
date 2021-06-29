@@ -10,25 +10,37 @@
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/prism.css" />
     <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        let lightIcon
+        let darkIcon
+        document.addEventListener('DOMContentLoaded', (event) => {
+            lightIcon = document.getElementById('light-icon')
+            darkIcon = document.getElementById('dark-icon')
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                lightIcon.classList.add('hidden')
+                darkIcon.classList.remove('hidden')
+            } else {
+                lightIcon.classList.remove('hidden')
+                darkIcon.classList.add('hidden')
+            }
+        })
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark')
             localStorage.theme = 'dark'
         } else {
             document.documentElement.classList.remove('dark')
             localStorage.theme = 'light'
-        };
+        }
         function toggleDark() {
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
                 document.documentElement.classList.remove('dark')
                 localStorage.theme = 'light'
-                document.getElementById('light-icon').classList.remove('hidden')
-                document.getElementById('dark-icon').classList.add('hidden')
+                lightIcon.classList.remove('hidden')
+                darkIcon.classList.add('hidden')
             } else {
                 document.documentElement.classList.add('dark')
                 localStorage.theme = 'dark'
-                document.getElementById('light-icon').classList.add('hidden')
-                document.getElementById('dark-icon').classList.remove('hidden')
+                lightIcon.classList.add('hidden')
+                darkIcon.classList.remove('hidden')
             }
         }
     </script>
