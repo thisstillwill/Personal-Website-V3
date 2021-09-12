@@ -23,11 +23,11 @@
     <meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
     <meta property="og:type" content="article" />
     {% if tags and tags.includes("posts") %}
-    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     {% else %}
-    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     {% endif %}
