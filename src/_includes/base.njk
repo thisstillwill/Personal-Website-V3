@@ -1,19 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Standard page metadata-->
+    <title>{{ title or metadata.title }}</title>
+    <meta name="description" content="{{ description or metadata.description }}">
     <meta name="author" content="{{ metadata.author }}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/prism.css" />
+
+    <!-- Generate favicon from emoji -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
+
+    <!-- Social media metadata -->
     <meta property="og:title" content="{{ title or metadata.title }}" />
     <meta property="og:description" content="{{ description or metadata.description }}" />
     <meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
+    <meta property="og:type" content="article" />
     {% if tags and tags.includes("posts") %}
-    <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     {% else %}
-    <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     {% endif %}
@@ -23,10 +37,8 @@
     <meta name="twitter:url" content="{{ metadata.base_url }}{{ page.url }}"/>
     <meta name="twitter:site" content="@{{ metadata.twitter }}" />
     <meta name="twitter:creator" content="@{{ metadata.twitter }}" />
-    <title>{{ title or metadata.title }}</title>
-    <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/prism.css" />
+
+    <!-- Darkmode toggle-->
     <script>
         let lightIcon
         let darkIcon
@@ -64,6 +76,7 @@
     </script>
 </head>
 
+<!-- Push footer to bottom -->
 <body class="flex flex-col min-h-screen text-gray-900 bg-gray-50 dark:bg-gray-900 dark:text-gray-50">
     <div class="flex-auto">
         {% include "header.njk" %}
