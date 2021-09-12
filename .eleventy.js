@@ -1,6 +1,7 @@
 const { DateTime } = require("luxon");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
 
@@ -63,6 +64,31 @@ module.exports = function (eleventyConfig) {
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
+
+  // Generate social preview images
+  // https://bnijenhuis.nl/notes/2021-05-10-automatically-generate-open-graph-images-in-eleventy/
+  eleventyConfig.on("afterBuild", () => {
+    const socialPreviewImagesDir = "build/static/images/social/";
+    fs.readdir(socialPreviewImagesDir, function (err, files) {
+      if (files.length > 0) {
+        files.forEach(function (filename) {
+          if (filename.endsWith(".svg")) {
+            let imageUrl = socialPreviewImagesDir + filename;
+            console.log(`Generating image(s) from:  ${imageUrl}`);
+            Image(imageUrl, {
+              formats: ["jpeg"],
+              outputDir: "./" + socialPreviewImagesDir,
+              filenameFormat: function (id, src, width, format, options) {
+                let outputFilename = filename.substring(0, filename.length - 4);
+
+                return `${outputFilename}.${format}`;
+              },
+            });
+          }
+        });
+      }
+    });
+  });
 
   // Register image shortcode
   // eleventyConfig.addShortcode("image", imageShortcode);

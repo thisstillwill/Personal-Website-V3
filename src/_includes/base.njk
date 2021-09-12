@@ -5,6 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="{{ metadata.author }}">
+    <meta property="og:title" content="{{ title or metadata.title }}" />
+    <meta property="og:description" content="{{ description or metadata.description }}" />
+    <meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
+    {% if tags and tags.includes("posts") %}
+    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    {% else %}
+    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    {% endif %}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title or metadata.title }}" />
+    <meta name="twitter:description" content="{{ description or metadata.description }}">
+    <meta name="twitter:url" content="{{ metadata.base_url }}{{ page.url }}"/>
+    <meta name="twitter:site" content="@{{ metadata.twitter }}" />
+    <meta name="twitter:creator" content="@{{ metadata.twitter }}" />
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <link rel="stylesheet" href="/style.css" />
