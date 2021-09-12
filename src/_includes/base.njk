@@ -18,17 +18,17 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>">
 
     <!-- Social media metadata -->
-    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="{{ title or metadata.title }}" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:description" content="{{ description or metadata.description }}" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="article" />
+    <meta property="og:title" content="{{ title or metadata.title }}" />
+    <meta property="og:description" content="{{ description or metadata.description }}" />
+    <meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
+    <meta property="og:type" content="article" />
     {% if tags and tags.includes("posts") %}
-    <meta prefix="og: http://ogp.me/ns#" name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+    <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
     {% else %}
-    <meta prefix="og: http://ogp.me/ns#" name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
-    <meta prefix="og: http://ogp.me/ns#" property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+    <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     <meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
     {% endif %}
     <meta name="twitter:card" content="summary_large_image" />
