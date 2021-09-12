@@ -4,6 +4,8 @@ const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const fs = require("fs");
 const Image = require("@11ty/eleventy-img");
 const path = require("path");
+const markdownIt = require("markdown-it");
+const markdownItAnchor = require("markdown-it-anchor");
 
 // Image shortcode using eleventy-img
 // https://www.brycewray.com/posts/2021/04/using-eleventys-official-image-plugin/
@@ -207,6 +209,25 @@ module.exports = function (eleventyConfig) {
   // Pass through static files to output
   eleventyConfig.addPassthroughCopy("./src/static");
   eleventyConfig.addPassthroughCopy("./src/*.css");
+
+  // Customize Markdown library and settings:
+  let markdownLibrary = markdownIt({
+    html: true,
+    breaks: true,
+    linkify: true,
+  }).use(markdownItAnchor, {
+    permalink: markdownItAnchor.permalink.linkInsideHeader({
+      placement: "before",
+      style: "aria-label",
+      assistiveText: (title) => `Permalink to “${title}”`,
+      visuallyHiddenClass: "visually-hidden",
+      class: "direct-link",
+      symbol: "#",
+      level: [1, 2, 3, 4],
+    }),
+    slugify: eleventyConfig.getFilter("slug"),
+  });
+  eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
   eleventyConfig.setBrowserSyncConfig({
