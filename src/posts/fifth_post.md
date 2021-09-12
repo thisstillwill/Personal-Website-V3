@@ -12,3 +12,9 @@ function myFunction() {
   return true;
 }
 ```
+
+Now let's put some normal text:
+
+```txt
+This text should still be legible
+```
