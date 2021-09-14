@@ -1,5 +1,4 @@
 ---
-layout: page.njk
 title: About Me
 eleventyNavigation:
   key: 👀 About
