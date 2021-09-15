@@ -32,7 +32,7 @@ This website is my space to [write](/posts) and talk about my [work](/projects).
 | Movie      | _Blade Runner_        |
 | Anime      | _Cowboy Bebop_        |
 | Video Game | _Mass Effect Trilogy_ |
-| Font       | Computer Modern       |
+| Font       | ITC Garamond          |
 
 ## Colophon
 
