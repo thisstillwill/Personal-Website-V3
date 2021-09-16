@@ -253,6 +253,7 @@ module.exports = function (eleventyConfig) {
     level: [2, 3, 4],
     slugify: eleventyConfig.getFilter("slug"),
   });
+  markdownLibrary.use(require("markdown-it-footnote"));
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
