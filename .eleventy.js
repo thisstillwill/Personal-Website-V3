@@ -235,7 +235,9 @@ module.exports = function (eleventyConfig) {
     html: true,
     breaks: true,
     linkify: true,
-  }).use(markdownItAnchor, {
+    typographer: true,
+  });
+  markdownLibrary.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.linkInsideHeader({
       placement: "before",
       style: "aria-label",
@@ -243,8 +245,12 @@ module.exports = function (eleventyConfig) {
       visuallyHiddenClass: "visually-hidden",
       class: "direct-link",
       symbol: "#",
-      level: [1, 2, 3, 4],
+      level: [2, 3, 4],
     }),
+    slugify: eleventyConfig.getFilter("slug"),
+  });
+  markdownLibrary.use(require("markdown-it-toc-done-right"), {
+    level: [2, 3, 4],
     slugify: eleventyConfig.getFilter("slug"),
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
