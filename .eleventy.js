@@ -254,6 +254,10 @@ module.exports = function (eleventyConfig) {
     slugify: eleventyConfig.getFilter("slug"),
   });
   markdownLibrary.use(require("markdown-it-footnote"));
+  markdownLibrary.use(require("@iktakahiro/markdown-it-katex"));
+  markdownLibrary.use(require("markdown-it-sup"));
+  markdownLibrary.use(require("markdown-it-sub"));
+
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)

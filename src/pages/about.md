@@ -7,7 +7,7 @@ eleventyNavigation:
 
 {% image "about.jpeg", "The author thinking about something besides his homework" %}
 
-> Live, laugh, code
+> Live, laugh, debug
 
 My name is William Svoboda, but you can call me Will 😉. I’m a senior at Princeton University in New Jersey studying computer science. I didn’t start programming until I was in college, but that hasn’t stopped my love for technology and all the things you can do with it.
 

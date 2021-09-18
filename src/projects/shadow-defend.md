@@ -19,6 +19,8 @@ tags:
 
 [toc]
 
+## Introduction
+
 In the spring of 2020, I studied abroad at the [University of Melbourne](https://www.unimelb.edu.au/) in Australia. One of my classes, SWEN20003, focused on software development using object-oriented principles. Taught in Java, lectures introduced concepts such as [abstract classes](https://en.wikipedia.org/wiki/Abstract_type), [generics](https://en.wikipedia.org/wiki/Generic_programming), and other topics. During weekly programming workshops, the focus was on implementing specific design patterns like an [observer](https://en.wikipedia.org/wiki/Observer_pattern), [factory](https://en.wikipedia.org/wiki/Factory_method_pattern), or [flyweight](https://en.wikipedia.org/wiki/Flyweight_pattern).
 
 The final assignment involved a large project that would apply what we had learned during the semester. The task was to create a tower defense game, titled _Shadow Defend_, using the specification provided to us. While we were given [Bagel](https://people.eng.unimelb.edu.au/mcmurtrye/bagel-doc/), a simple graphics engine, the actual game logic implementation was left up to us.
@@ -77,6 +79,6 @@ In general, any object that needed to track time (waves, certain projectiles, an
 
 ## Final Thoughts
 
-This assignment was a pleasant surprise, but not for the reasons you might expect. I had used game engines in the past, namely [Unity](https://unity.com/). However, the difference here was the simplicity of the Bagel graphics library. It was up to me to implement features that I had previously taken for granted in more advanced engines. While I certainly used many of the design patterns taught in SWEN20003 for the game, I learned almost as much about game engines themselves.
+This assignment was a pleasant surprise, but not for the reasons you might expect. I had used game engines in the past, namely [Unity](https://unity.com/). However, the difference here was the simplicity of the Bagel graphics library. It was up to me to implement features that I had previously taken for granted in more advanced engines. While I certainly used many design patterns for the game, I learned almost as much about game engines themselves.
 
 _The source code for Shadow Defend and instructions on how to play it are available online at https://github.com/disstillwill/SWEN20003-S1-2020-Project-2._
