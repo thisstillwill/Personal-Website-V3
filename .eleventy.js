@@ -229,6 +229,7 @@ module.exports = function (eleventyConfig) {
   // Pass through static files to output
   eleventyConfig.addPassthroughCopy("./src/static");
   eleventyConfig.addPassthroughCopy("./src/*.css");
+  eleventyConfig.addPassthroughCopy("./src/fonts");
 
   // Customize Markdown library and settings:
   let markdownLibrary = markdownIt({

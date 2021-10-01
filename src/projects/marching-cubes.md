@@ -6,6 +6,7 @@ tags:
   - featured
   - C Sharp
   - Graphics
+katex: true
 ---
 
 {% image "marching-cubes.png", "Marching cubes used to spell “COS”, the abbreviation for computer science at Princeton University" %}
