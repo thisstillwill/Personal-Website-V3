@@ -5,17 +5,17 @@ date: 2020-06-13
 tags:
   - featured
   - Java
-  - GameDev
+  - Gamedev
 ---
 
 {% image "shadow-defend.png", "Screenshot of the game in action" %}
 
-| Project Summary |                                                                          |
-| --------------- | ------------------------------------------------------------------------ |
-| Title           | _Shadow Defend_                                                          |
-| Language        | Java                                                                     |
-| Specification   | [Download PDF](../../static/documents/shadow-defend-specification.pdf)   |
-| Code            | [Repo Link](https://github.com/disstillwill/SWEN20003-S1-2020-Project-2) |
+| Project&nbsp;Summary |                                                                          |
+| -------------------- | ------------------------------------------------------------------------ |
+| Title                | _Shadow Defend_                                                          |
+| Language             | Java                                                                     |
+| Specification        | [Download PDF](../../static/documents/shadow-defend-specification.pdf)   |
+| Code                 | [Repo Link](https://github.com/disstillwill/SWEN20003-S1-2020-Project-2) |
 
 [toc]
 
@@ -81,4 +81,4 @@ In general, any object that needed to track time (waves, certain projectiles, an
 
 This assignment was a pleasant surprise, but not for the reasons you might expect. I had used game engines in the past, namely [Unity](https://unity.com/). However, the difference here was the simplicity of the Bagel graphics library. It was up to me to implement features that I had previously taken for granted in more advanced engines. While I certainly used many design patterns for the game, I learned almost as much about game engines themselves.
 
-_The source code for Shadow Defend and instructions on how to play it are available online at https://github.com/disstillwill/SWEN20003-S1-2020-Project-2._
+_The source code for Shadow Defend and instructions on how to play it are available online at <https://github.com/disstillwill/SWEN20003-S1-2020-Project-2>._
