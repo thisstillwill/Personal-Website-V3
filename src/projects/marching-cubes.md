@@ -4,7 +4,7 @@ description: "A real-time implementation of the marching cubes algorithm for my 
 date: 2021-01-28
 tags:
   - featured
-  - C Sharp
+  - C#
   - Graphics
 katex: true
 ---
@@ -14,7 +14,7 @@ katex: true
 | Project&nbsp;Summary |                                                                           |
 | -------------------- | ------------------------------------------------------------------------- |
 | Title                | “Improving the Marching Cubes Algorithm for Use in Deformable 3D Terrain” |
-| Language             | C Sharp                                                                   |
+| Language             | C#                                                                        |
 | Report               | [Download PDF](../../static/documents/marching-cubes-report.pdf)          |
 | Code                 | [Repo Link](https://github.com/disstillwill/IW-Fall-2020)                 |
 
