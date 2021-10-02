@@ -4,7 +4,7 @@ description: "A real-time implementation of the marching cubes algorithm for my 
 date: 2021-01-28
 tags:
   - featured
-  - C#
+  - CSharp
   - Graphics
 katex: true
 ---
