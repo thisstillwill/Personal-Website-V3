@@ -5,7 +5,7 @@ date: 2020-06-13
 tags:
   - featured
   - Java
-  - Gamedev
+  - GameDev
 ---
 
 {% image "shadow-defend.png", "Screenshot of the game in action" %}
