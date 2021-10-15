@@ -1,7 +1,7 @@
 ---
 title: Improving the Marching Cubes Algorithm
 description: "A real-time implementation of the marching cubes algorithm for my fall junior paper at Princeton University."
-date: 2021-01-28
+date: 2021-01-06
 tags:
   - featured
   - CSharp
