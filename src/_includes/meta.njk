@@ -1,0 +1,80 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Standard page metadata-->
+<title>{{ title or metadata.title }}</title>
+<meta name="description" content="{{ description or metadata.description }}" />
+<meta name="author" content="{{ metadata.author }}" />
+
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/style.css" />
+<link rel="stylesheet" href="/prism.css" />
+{% if katex %}
+<!-- KaTeX -->
+<link rel="stylesheet" href="/katex.min.css" />
+{% endif %}
+
+<!-- Generate favicon from emoji -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌊</text></svg>" />
+
+<!-- Specify canonical link for search engines -->
+<link rel="canonical" href="{{ metadata.base_url }}{{ page.url }}" />
+
+<!-- Social media metadata -->
+<meta property="og:title" content="{{ title or metadata.title }}" />
+<meta property="og:description" content="{{ description or metadata.description }}" />
+<meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+{% if tags and tags.includes("posts") %}
+<meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+<meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+<meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+{% else %}
+<meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+<meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+<meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
+{% endif %}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ title or metadata.title }}" />
+<meta name="twitter:description" content="{{ description or metadata.description }}" />
+<meta name="twitter:url" content="{{ metadata.base_url }}{{ page.url }}" />
+<meta name="twitter:site" content="@{{ metadata.twitter }}" />
+<meta name="twitter:creator" content="@{{ metadata.twitter }}" />
+
+<!-- Darkmode toggle-->
+<script>
+    let lightIcon
+    let darkIcon
+    document.addEventListener('DOMContentLoaded', (event) => {
+        lightIcon = document.getElementById('light-icon')
+        darkIcon = document.getElementById('dark-icon')
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            lightIcon.classList.add('hidden')
+            darkIcon.classList.remove('hidden')
+        } else {
+            lightIcon.classList.remove('hidden')
+            darkIcon.classList.add('hidden')
+        }
+    })
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+        localStorage.theme = 'dark'
+    } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.theme = 'light'
+    }
+    function toggleDark() {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.remove('dark')
+            localStorage.theme = 'light'
+            lightIcon.classList.remove('hidden')
+            darkIcon.classList.add('hidden')
+        } else {
+            document.documentElement.classList.add('dark')
+            localStorage.theme = 'dark'
+            lightIcon.classList.add('hidden')
+            darkIcon.classList.remove('hidden')
+        }
+    }
+</script>
