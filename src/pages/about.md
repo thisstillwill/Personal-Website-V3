@@ -36,7 +36,7 @@ This website is my space to [write](/posts) and talk about my [work](/projects).
 
 ## Colophon
 
-This website was started in the summer of 2021, but is actually the third time I’ve made a personal site. My [first](https://disstillwill.github.io/Personal-Website-V1/) and [second](https://disstillwill.github.io/Personal-Website-V2/) websites were made the year prior using vanilla HTML and CSS. A full list of the tools I use now are below:
+This website was started in the summer of 2021, but is actually the third time I’ve made a personal site. My [first](https://thisstillwill.github.io/Personal-Website-V1/) and [second](https://thisstillwill.github.io/Personal-Website-V2/) websites were made the year prior using vanilla HTML and CSS. A full list of the tools I use now are below:
 
 - [Markdown](https://daringfireball.net/projects/markdown/) for content
 - [Eleventy](https://www.11ty.dev/) for site generation

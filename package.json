@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/disstillwill/Personal-Website-V3.git"
+    "url": "git+https://github.com/thisstillwill/Personal-Website-V3.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/disstillwill/Personal-Website-V3/issues"
+    "url": "https://github.com/thisstillwill/Personal-Website-V3/issues"
   },
-  "homepage": "https://github.com/disstillwill/Personal-Website-V3#readme",
+  "homepage": "https://github.com/thisstillwill/Personal-Website-V3#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-img": "^0.10.0",

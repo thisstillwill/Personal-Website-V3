@@ -15,7 +15,7 @@ tags:
 | Title                | “Teaching Graph Traversal Visually”                                 |
 | Language             | Python                                                              |
 | Report               | [Download PDF](../../static/documents/teaching-graph-traversal.pdf) |
-| Code                 | [Repo Link](https://github.com/disstillwill/IW-Spring-2021)         |
+| Code                 | [Repo Link](https://github.com/thisstillwill/IW-Spring-2021)        |
 
 [toc]
 
@@ -74,4 +74,4 @@ I was able to get nine real Princeton students to complete my assignment. Feedba
 
 Overall, I appreciated the chance to do something like this. Many times in my Princeton career have I wondered about the teaching aspect of my courses. This project was a chance for me to be the professor for a change.
 
-_The source code for this project and instructions on how to run the final application are available online at <https://github.com/disstillwill/IW-Spring-2021>._
+_The source code for this project and instructions on how to run the final application are available online at <https://github.com/thisstillwill/IW-Spring-2021>._

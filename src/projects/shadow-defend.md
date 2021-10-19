@@ -10,12 +10,12 @@ tags:
 
 {% image "shadow-defend.png", "Screenshot of the game in action" %}
 
-| Project&nbsp;Summary |                                                                          |
-| -------------------- | ------------------------------------------------------------------------ |
-| Title                | _Shadow Defend_                                                          |
-| Language             | Java                                                                     |
-| Specification        | [Download PDF](../../static/documents/shadow-defend-specification.pdf)   |
-| Code                 | [Repo Link](https://github.com/disstillwill/SWEN20003-S1-2020-Project-2) |
+| Project&nbsp;Summary |                                                                           |
+| -------------------- | ------------------------------------------------------------------------- |
+| Title                | _Shadow Defend_                                                           |
+| Language             | Java                                                                      |
+| Specification        | [Download PDF](../../static/documents/shadow-defend-specification.pdf)    |
+| Code                 | [Repo Link](https://github.com/thisstillwill/SWEN20003-S1-2020-Project-2) |
 
 [toc]
 
@@ -31,7 +31,7 @@ The actual assignment was split into two parts. The first task was to produce a 
 
 ## Implementing the Game
 
-The final implementation for _Shadow Defend_ followed not only our UML diagram but also our earlier work in the course. In a previous assignment ([repo link](https://github.com/disstillwill/SWEN20003-S1-2020-Project-1)), we had already created a skeleton for a tower defense game. However, it lacked most of the features that would be required in the final project. Of note, the game would need to handle multiple enemy types, purchasing new towers, and a status panel to track information.
+The final implementation for _Shadow Defend_ followed not only our UML diagram but also our earlier work in the course. In a previous assignment ([repo link](https://github.com/thisstillwill/SWEN20003-S1-2020-Project-1)), we had already created a skeleton for a tower defense game. However, it lacked most of the features that would be required in the final project. Of note, the game would need to handle multiple enemy types, purchasing new towers, and a status panel to track information.
 
 ### Timescale Changes
 
@@ -81,4 +81,4 @@ In general, any object that needed to track time (waves, certain projectiles, an
 
 This assignment was a pleasant surprise, but not for the reasons you might expect. I had used game engines in the past, namely [Unity](https://unity.com/). However, the difference here was the simplicity of the Bagel graphics library. It was up to me to implement features that I had previously taken for granted in more advanced engines. While I certainly used many design patterns for the game, I learned almost as much about game engines themselves.
 
-_The source code for Shadow Defend and instructions on how to play it are available online at <https://github.com/disstillwill/SWEN20003-S1-2020-Project-2>._
+_The source code for Shadow Defend and instructions on how to play it are available online at <https://github.com/thisstillwill/SWEN20003-S1-2020-Project-2>._

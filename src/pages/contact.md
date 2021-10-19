@@ -12,6 +12,6 @@ The best way to reach me is by email at `wsvoboda[at]princeton.edu`. I'm down to
 
 ## Follow Me
 
-- [disstillwill](https://github.com/disstillwill) on GitHub
-- [@dis_still_will](https://twitter.com/dis_still_will) on Twitter
+- [thisstillwill](https://github.com/thisstillwill) on GitHub
+- [@thisstillwill](https://twitter.com/thisstillwill) on Twitter
 - [williamsvoboda](https://www.linkedin.com/in/williamsvoboda/) on LinkedIn
