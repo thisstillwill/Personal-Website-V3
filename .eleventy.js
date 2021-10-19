@@ -6,6 +6,11 @@ const Image = require("@11ty/eleventy-img");
 const path = require("path");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItToc = require("markdown-it-toc-done-right");
+const markdownItFootnote = require("markdown-it-footnote");
+const markdownItMath = require("@iktakahiro/markdown-it-katex");
+const markdownItSup = require("markdown-it-sup");
+const markdownItSub = require("markdown-it-sub");
 
 // Image shortcode using eleventy-img
 // https://www.brycewray.com/posts/2021/04/using-eleventys-official-image-plugin/
@@ -123,7 +128,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPairedShortcode(
     "hero",
     (content) => `
-            <header class="bg-blue-600 text-gray-50 text-4xl lg:text-5xl dark:bg-indigo-700">
+            <header class="bg-primary text-background text-4xl lg:text-5xl dark:bg-border-dark dark:text-text-dark">
                 <div class="max-w-screen-xl px-6 py-8 mx-auto lg:py-12">
                     ${content}
                 </div>
@@ -136,7 +141,7 @@ module.exports = function (eleventyConfig) {
     "sectionContainer",
     (content, title) => `
             <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
-                <h2 class="text-3xl lg:text-4xl border-b-2 pb-4 border-gray-900 border-dashed dark:border-gray-50">${title}</h2>
+                <h2 class="text-3xl lg:text-4xl border-b-2 pb-4 border-text border-dashed dark:border-text-dark">${title}</h2>
                 ${content}
             </section>
         `
@@ -156,16 +161,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode(
     "card",
     (link, titleLevel, title, dateTime, displayTime, description, tags) => `
-            <a class="transition duration-150 ease-in-out transform border-2 border-blue-600 rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl bg-gray-50 dark:border-indigo-700 dark:bg-gray-900" href="${link}">
+            <a class="transition duration-150 ease-in-out transform border-2 border-primary rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl bg-background dark:border-border-dark dark:bg-border-dark" href="${link}">
                 <article class="h-full p-4">
                     <${titleLevel} class="text-2xl">${title}</${titleLevel}>
-                    <time class="block mt-1 font-mono text-gray-600 text-sm dark:text-gray-200" datetime="${dateTime}">${displayTime}</time>
+                    <time class="block mt-1 font-mono text-sm" datetime="${dateTime}">${displayTime}</time>
                     <p class="mt-2 leading-normal">${description}</p>
                     <ul class="flex flex-wrap mt-4">
                         ${(tags || [])
                           .map(function (tag) {
                             return `<li class="mb-2 mr-2">
-                        <span class="bg-blue-600 text-gray-50 px-2 py-1 rounded-md text-xs inline-flex font-medium whitespace-nowrap dark:bg-indigo-700">${tag}</span>
+                        <span class="bg-primary text-background px-2 py-1 rounded-md text-xs inline-flex font-medium whitespace-nowrap dark:bg-primary-dark dark:text-text-dark">${tag}</span>
                     </li>`;
                           })
                           .join("")}
@@ -250,15 +255,14 @@ module.exports = function (eleventyConfig) {
     }),
     slugify: eleventyConfig.getFilter("slug"),
   });
-  markdownLibrary.use(require("markdown-it-toc-done-right"), {
+  markdownLibrary.use(markdownItToc, {
     level: [2, 3, 4],
     slugify: eleventyConfig.getFilter("slug"),
   });
-  markdownLibrary.use(require("markdown-it-footnote"));
-  markdownLibrary.use(require("@iktakahiro/markdown-it-katex"));
-  markdownLibrary.use(require("markdown-it-sup"));
-  markdownLibrary.use(require("markdown-it-sub"));
-
+  markdownLibrary.use(markdownItFootnote);
+  markdownLibrary.use(markdownItMath);
+  markdownLibrary.use(markdownItSup);
+  markdownLibrary.use(markdownItSub);
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)

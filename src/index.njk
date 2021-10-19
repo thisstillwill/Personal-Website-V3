@@ -4,9 +4,10 @@ eleventyNavigation:
   key: 🏠 Home
   order: 0
 ---
+
 {% hero %}
   <h1 class="font-medium">Hey, I'm Will&nbsp;👋</h1>
-  <p class="mt-4 text-lg leading-snug lg:text-xl lg:leading-relaxed max-w-prose">I study computer science at <a class="underline hover:bg-yellow-500 focus:bg-yellow-500" href="https://www.princeton.edu/">Princeton&nbsp;University</a>. The Web is my hometown, and I love using code to make new things.</p>
+  <p class="mt-4 text-lg leading-snug lg:text-xl lg:leading-relaxed max-w-prose">I study computer science at <a class="underline hover:bg-princeton focus:bg-princeton" href="https://www.princeton.edu/">Princeton&nbsp;University</a>. The Web is my hometown, and I love using code to make new things.</p>
 {% endhero %}
 {% sectionContainer "Latest Posts" %}
   {% cardContainer %}
@@ -22,7 +23,7 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600 dark:hover:text-indigo-700 dark:focus:text-indigo-700" href="{{ '/posts/' | url }}">See All Posts →</a></p>
+  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark" href="{{ '/posts/' | url }}">See All Posts →</a></p>
 {% endsectionContainer %}
 {% sectionContainer "Featured Projects" %}
   {% cardContainer %}
@@ -38,14 +39,14 @@ eleventyNavigation:
     %}
     {% endfor %}
   {% endcardContainer %}
-  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-blue-600 focus:text-blue-600 dark:hover:text-indigo-700 dark:focus:text-indigo-700" href="{{ '/projects/' | url }}">See All Projects →</a></p>
+  <p class="mt-8 text-right"><a class="text-xl font-medium hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark" href="{{ '/projects/' | url }}">See All Projects →</a></p>
 {% endsectionContainer %}
 {% sectionContainer "All Tags" %}
 <ul class="flex flex-wrap max-w-xl mt-8">
   {% for tag in collections.tagList | filterTagList %}
   {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
   <li class="mb-2 mr-2">
-    <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium bg-blue-600 border-2 border-blue-600 rounded-md text-gray-50 whitespace-nowrap hover:bg-gray-50 hover:text-blue-600 focus:bg-gray-50 focus:text-blue-600 dark:bg-indigo-700 dark:border-indigo-700 dark:hover:bg-gray-900 dark:hover:text-indigo-700 dark:focus:bg-gray-900 dark:focus:text-indigo-700">{{ tag }}</a>
+    <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium border-2 rounded-md border-primary bg-primary text-background whitespace-nowrap hover:bg-background hover:text-primary focus:bg-background focus:text-primary dark:bg-primary-dark dark:border-primary-dark dark:hover:bg-background-dark dark:hover:text-primary-dark dark:focus:bg-background-dark dark:focus:text-primary-dark dark:text-text-dark">{{ tag }}</a>
   </li>
   {% endfor %}
 </ul>
