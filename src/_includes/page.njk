@@ -4,7 +4,7 @@ layout: base.njk
 <article>
     {% hero %}
         <h1 class="sm:text-center">{{ title }}</h1>
-        <p class="mt-2 font-mono text-sm lg:mt-4 lg:text-base sm:text-center">
+        <p class="mt-2 font-mono text-sm md:mt-4 md:text-base sm:text-center">
             {% if tags %}
             {% if tags.includes("posts") %}Posted <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
             {% elif tags.includes("projects") %}Completed <time datetime="{{ page.date | dateYear }}">{{ page.date | dateYear }}</time>

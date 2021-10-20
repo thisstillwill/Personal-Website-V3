@@ -17,15 +17,15 @@
     </div>
     <nav class="flex items-center mt-4 space-x-4 overflow-x-auto lg:ml-auto lg:mt-0 lg:space-x-6">
         {%- for entry in collections.all | eleventyNavigation %}
-        <a class="font-medium whitespace-nowrap text-lg hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark {{ 'underline' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) }}"
+        <a class="font-medium whitespace-nowrap text-lg hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark border-b-2 {{ 'border-text dark:border-text-dark' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) else 'border-background dark:border-background-dark' }}"
             href="{{ entry.url | url }}">{{ entry.title }}</a>
         {%- endfor %}
-        <a title="Edit this page" class="flex-shrink-0 w-6 h-6" href="{{ metadata.repo_base_url }}{{ page.inputPath }}">
+        <a title="Link to GitHub" class="flex-shrink-0 w-6 h-6 mb-[2px]" href="{{ metadata.github_url }}">
             <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" class="fill-current" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414">
                 <path d="M8 0C3.58 0 0 3.582 0 8c0 3.535 2.292 6.533 5.47 7.59.4.075.547-.172.547-.385 0-.19-.007-.693-.01-1.36-2.226.483-2.695-1.073-2.695-1.073-.364-.924-.89-1.17-.89-1.17-.725-.496.056-.486.056-.486.803.056 1.225.824 1.225.824.714 1.223 1.873.87 2.33.665.072-.517.278-.87.507-1.07-1.777-.2-3.644-.888-3.644-3.953 0-.873.31-1.587.823-2.147-.09-.202-.36-1.015.07-2.117 0 0 .67-.215 2.2.82.64-.178 1.32-.266 2-.27.68.004 1.36.092 2 .27 1.52-1.035 2.19-.82 2.19-.82.43 1.102.16 1.915.08 2.117.51.56.82 1.274.82 2.147 0 3.073-1.87 3.75-3.65 3.947.28.24.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.14.46.55.38C13.71 14.53 16 11.53 16 8c0-4.418-3.582-8-8-8"/>
             </svg>
         </a>
-        <a title="View feed" class="flex-shrink-0 w-6 h-6" href="/feed.xml">
+        <a title="View feed" class="flex-shrink-0 w-6 h-6 mb-[2px]" href="/feed.xml">
             <svg xmlns="http://www.w3.org/2000/svg" class="fill-current" viewBox="0 0 24 24">
                 <circle cx="6.18" cy="17.82" r="2.18"/>
                 <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
