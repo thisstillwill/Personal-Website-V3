@@ -11,6 +11,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItMath = require("@iktakahiro/markdown-it-katex");
 const markdownItSup = require("markdown-it-sup");
 const markdownItSub = require("markdown-it-sub");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 // Image shortcode using eleventy-img
 // https://www.brycewray.com/posts/2021/04/using-eleventys-official-image-plugin/
@@ -83,6 +84,7 @@ module.exports = function (eleventyConfig) {
   // Register plugins
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginRss);
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);

@@ -29,61 +29,61 @@ module.exports = {
         DEFAULT: {
           css: [
             {
-              color: theme("colors.text"),
+              color: theme("colors.text.DEFAULT"),
               '[class~="lead"]': {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               a: {
                 color: theme("colors.primary.DEFAULT"),
               },
               strong: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               "ol > li::before": {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               "ul > li::before": {
-                backgroundColor: theme("colors.text"),
+                backgroundColor: theme("colors.text.DEFAULT"),
               },
               hr: {
-                borderColor: theme("colors.text"),
+                borderColor: theme("colors.text.DEFAULT"),
               },
               blockquote: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
                 borderLeftColor: theme("colors.border.DEFAULT"),
               },
               "blockquote p:first-of-type::before": { content: "none" },
               "blockquote p:first-of-type::after": { content: "none" },
               h1: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               h2: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               h3: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               h4: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               "figure figcaption": {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               code: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               "a code": {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               pre: {
-                color: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
               },
               thead: {
-                color: theme("colors.text"),
-                borderBottomColor: theme("colors.text"),
+                color: theme("colors.text.DEFAULT"),
+                borderBottomColor: theme("colors.text.DEFAULT"),
               },
               "tbody tr": {
-                borderBottomColor: theme("colors.text"),
+                borderBottomColor: theme("colors.text.DEFAULT"),
               },
             },
           ],
