@@ -1,6 +1,6 @@
 ---
 title: Building a Blog
-description: The why of starting a blog in 2021.
+description: The how and why of starting a blog in 2021.
 date: 2021-10-19
 tags:
   - Life
