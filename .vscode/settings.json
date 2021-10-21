@@ -3,8 +3,10 @@
     "barebones",
     "instanceof",
     "katex",
+    "luxon",
     "superslicer",
     "SWEN",
     "thisstillwill"
-  ]
+  ],
+  "cSpell.ignoreWords": ["taglist"]
 }

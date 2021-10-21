@@ -1,24 +1,25 @@
-const { DateTime } = require("luxon");
-const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const fs = require("fs");
-const Image = require("@11ty/eleventy-img");
-const path = require("path");
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
-const markdownItToc = require("markdown-it-toc-done-right");
-const markdownItFootnote = require("markdown-it-footnote");
-const markdownItMath = require("@iktakahiro/markdown-it-katex");
-const markdownItSup = require("markdown-it-sup");
-const markdownItSub = require("markdown-it-sub");
-const markdownItAttrs = require("markdown-it-attrs");
+// Eleventy plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const pluginNavigation = require("@11ty/eleventy-navigation");
+const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const pluginImage = require("@11ty/eleventy-img");
+
+// Work with file system
+const fs = require("fs");
+const path = require("path");
+
+// Access utilities
+const filters = require("./src/utils/filters");
+const components = require("./src/utils/components.js");
+const markdownLibrary = require("./src/utils/markdown");
+
+const IS_PRODUCTION = process.env.ELEVENTY_ENV === "production";
 
 // Image shortcode using eleventy-img
 // https://www.brycewray.com/posts/2021/04/using-eleventys-official-image-plugin/
 async function imageShortcode(src, alt) {
   // Generate optimized images only in production
-  if (process.env.ELEVENTY_ENV === "production") {
+  if (IS_PRODUCTION) {
     let sizes = "(min-width: 1024px) 100vw, 50vw";
     let srcPrefix = `./src/static/images/`;
     src = srcPrefix + src;
@@ -27,7 +28,7 @@ async function imageShortcode(src, alt) {
       // Throw an error on missing alt (alt="" works okay)
       throw new Error(`Missing \`alt\` on responsive image from: ${src}`);
     }
-    let metadata = await Image(src, {
+    let metadata = await pluginImage(src, {
       widths: [600, 900, 1500],
       formats: ["webp", "jpeg"],
       urlPath: "/static/images/",
@@ -83,8 +84,8 @@ async function imageShortcode(src, alt) {
 
 module.exports = function (eleventyConfig) {
   // Register plugins
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
 
   // https://www.11ty.dev/docs/data-deep-merge/
@@ -93,7 +94,7 @@ module.exports = function (eleventyConfig) {
   // Generate social preview images in production
   // https://bnijenhuis.nl/notes/2021-05-10-automatically-generate-open-graph-images-in-eleventy/
   eleventyConfig.on("afterBuild", () => {
-    if (process.env.ELEVENTY_ENV === "production") {
+    if (IS_PRODUCTION) {
       const socialPreviewImagesDir = "build/static/images/social/";
       fs.readdir(socialPreviewImagesDir, function (err, files) {
         if (files.length > 0) {
@@ -101,7 +102,7 @@ module.exports = function (eleventyConfig) {
             if (filename.endsWith(".svg")) {
               let imageUrl = socialPreviewImagesDir + filename;
               console.log(`Generating image(s) from:  ${imageUrl}`);
-              Image(imageUrl, {
+              pluginImage(imageUrl, {
                 formats: ["jpeg"],
                 outputDir: "./" + socialPreviewImagesDir,
                 filenameFormat: function (id, src, width, format, options) {
@@ -127,69 +128,22 @@ module.exports = function (eleventyConfig) {
   // === Liquid needed if `markdownTemplateEngine` **isn't** changed from Eleventy default
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
-  // Post TOC
-  eleventyConfig.addShortcode("toc", () => {
-    return `<h2>Table of Contents</h2>\n\n[[toc]]`;
+  // Filters
+  Object.keys(filters).forEach((filterName) => {
+    eleventyConfig.addFilter(filterName, filters[filterName]);
   });
 
-  // Hero banner
-  eleventyConfig.addPairedShortcode(
-    "hero",
-    (content) => `
-            <header class="bg-primary text-background text-4xl md:text-5xl dark:bg-border-dark dark:text-text-dark">
-                <div class="max-w-screen-xl px-6 py-8 mx-auto md:py-12">
-                    ${content}
-                </div>
-            </header>
-        `
-  );
-
-  // Section container
+  // Shortcodes
+  eleventyConfig.addShortcode("toc", components.toc);
+  eleventyConfig.addPairedShortcode("hero", components.hero);
   eleventyConfig.addPairedShortcode(
     "sectionContainer",
-    (content, title) => `
-            <section class="max-w-screen-xl px-6 mx-auto mt-8 lg:mt-12">
-                <h2 class="text-3xl lg:text-4xl border-b-2 pb-4 border-text border-dashed dark:border-text-dark">${title}</h2>
-                ${content}
-            </section>
-        `
+    components.sectionContainer
   );
+  eleventyConfig.addPairedShortcode("cardContainer", components.cardContainer);
+  eleventyConfig.addShortcode("card", components.card);
 
-  // Card container
-  eleventyConfig.addPairedShortcode(
-    "cardContainer",
-    (content) => `
-            <div class="grid grid-flow-row gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
-                ${content}
-            </div>
-        `
-  );
-
-  // Card component
-  eleventyConfig.addShortcode(
-    "card",
-    (link, titleLevel, title, dateTime, displayTime, description, tags) => `
-            <a class="transition duration-150 ease-in-out transform border-2 border-primary rounded-lg hover:scale-105 focus:scale-105 hover:shadow-xl focus:shadow-xl bg-background dark:border-border-dark dark:bg-border-dark" href="${link}">
-                <article class="h-full p-4">
-                    <${titleLevel} class="text-2xl">${title}</${titleLevel}>
-                    <time class="block mt-1 font-mono text-sm" datetime="${dateTime}">${displayTime}</time>
-                    <p class="mt-2 leading-normal">${description}</p>
-                    <ul class="flex flex-wrap mt-4">
-                        ${(tags || [])
-                          .map(function (tag) {
-                            return `<li class="mb-2 mr-2">
-                        <span class="bg-primary text-background px-2 py-1 rounded-md text-xs inline-flex font-medium whitespace-nowrap dark:bg-primary-dark dark:text-text-dark">${tag}</span>
-                    </li>`;
-                          })
-                          .join("")}
-                    </ul>
-
-                </article>
-            </a>
-        `
-  );
-
-  // Create an array of all tags
+  // Create a collection of all tags
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
     collection.getAll().forEach((item) => {
@@ -199,78 +153,11 @@ module.exports = function (eleventyConfig) {
     return [...tagSet];
   });
 
-  // Get the first `n` elements of a collection.
-  eleventyConfig.addFilter("head", (array, n) => {
-    if (n < 0) {
-      return array.slice(n);
-    }
-    return array.slice(0, n);
-  });
-
-  // Return only the elements present in another collection
-  eleventyConfig.addFilter("filterInCollection", function (array, collection) {
-    return (array || []).filter((o) => collection.includes(o));
-  });
-
-  // Return only relevant tags
-  eleventyConfig.addFilter("filterTagList", (tags) => {
-    // should match the list in tags.njk
-    return (tags || []).filter(
-      (tag) =>
-        ["all", "featured", "posts", "projects", "pages"].indexOf(tag) === -1
-    );
-  });
-
-  // Get the year from a page's date
-  eleventyConfig.addFilter("dateYear", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy");
-  });
-
-  // Generate a human-readable date string from a page's date
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
-    );
-  });
-
-  // Generate a valid date string from a page's date
-  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
-  });
-
   // Pass through static files to output
   eleventyConfig.addPassthroughCopy("./src/static");
   eleventyConfig.addPassthroughCopy("./src/fonts");
 
-  // Customize Markdown library and settings:
-  let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-    typographer: true,
-  });
-  markdownLibrary.use(markdownItAnchor, {
-    permalink: markdownItAnchor.permalink.linkInsideHeader({
-      placement: "before",
-      style: "aria-label",
-      assistiveText: (title) => `Permalink to “${title}”`,
-      visuallyHiddenClass: "visually-hidden",
-      class: "direct-link",
-      symbol: "#",
-      level: [2, 3, 4],
-    }),
-    slugify: eleventyConfig.getFilter("slug"),
-  });
-  markdownLibrary.use(markdownItToc, {
-    level: [2, 3],
-    slugify: eleventyConfig.getFilter("slug"),
-  });
-  markdownLibrary.use(markdownItFootnote);
-  markdownLibrary.use(markdownItMath, {});
-  markdownLibrary.use(markdownItSup);
-  markdownLibrary.use(markdownItSub);
-  markdownLibrary.use(markdownItAttrs);
+  // Markdown Parsing
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
