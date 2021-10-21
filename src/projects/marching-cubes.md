@@ -18,7 +18,7 @@ katex: true
 | Report               | [Download PDF](../../static/documents/marching-cubes-report.pdf)          |
 | Code                 | [Repo Link](https://github.com/thisstillwill/IW-Fall-2020)                |
 
-[toc]
+{% toc %}
 
 ## Background
 

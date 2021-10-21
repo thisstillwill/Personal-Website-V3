@@ -1,0 +1,7 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.note {
+  @apply p-8 border-2 bg-note border-border dark:border-border-dark dark:bg-border-dark;
+}

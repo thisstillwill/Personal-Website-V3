@@ -17,7 +17,7 @@ tags:
 | Report               | [Download PDF](../../static/documents/teaching-graph-traversal.pdf) |
 | Code                 | [Repo Link](https://github.com/thisstillwill/IW-Spring-2021)        |
 
-[toc]
+{% toc %}
 
 ## Background
 

@@ -2,13 +2,22 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
   mode: "jit",
-  purge: ["./src/**/*.njk", ".eleventy.js"],
+  purge: {
+    content: [
+      "./src/**/*.njk",
+      "./src/**/*.js",
+      "./src/**/*.11ty.js",
+      "./src/**/*.html",
+      ".eleventy.js",
+    ],
+  },
   darkMode: "class",
   theme: {
     colors: {
       primary: {
         DEFAULT: colors.blue[600],
         dark: colors.blue[500],
+        light: colors.blue[400],
       },
       background: {
         DEFAULT: colors.gray[50],
@@ -16,10 +25,14 @@ module.exports = {
       },
       text: {
         DEFAULT: colors.gray[900],
-        dark: colors.gray[100],
+        dark: colors.gray[50],
       },
       border: {
         DEFAULT: colors.gray[300],
+        dark: colors.gray[800],
+      },
+      note: {
+        DEFAULT: colors.yellow[100],
         dark: colors.gray[800],
       },
       princeton: "#e77500",
@@ -96,7 +109,7 @@ module.exports = {
                 color: theme("colors.text.dark"),
               },
               a: {
-                color: theme("colors.primary.dark"),
+                color: theme("colors.primary.light"),
               },
               strong: {
                 color: theme("colors.text.dark"),

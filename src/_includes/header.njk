@@ -1,6 +1,6 @@
 <header class="flex flex-col max-w-screen-xl px-6 py-8 lg:flex-row lg:items-center lg:mx-auto">
     <div class="inline-flex items-center">
-        <a class="text-3xl font-medium hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark"
+        <a class="text-3xl font-medium hover:text-primary focus:text-primary dark:hover:text-primary-light dark:focus:text-primary-light"
             href="{{ '/' | url }}">William Svoboda</a>
         <button class="w-8 h-8 ml-4" onclick="toggleDark()" aria-label="Toggle Dark Mode">
             <svg xmlns='http://www.w3.org/2000/svg' class='fill-current' viewBox='0 0 512 512' aria-hidden='true'
@@ -17,7 +17,7 @@
     </div>
     <nav class="flex items-center mt-4 space-x-4 overflow-x-auto lg:ml-auto lg:mt-0 lg:space-x-6">
         {%- for entry in collections.all | eleventyNavigation %}
-        <a class="font-medium whitespace-nowrap text-lg hover:text-primary focus:text-primary dark:hover:text-primary-dark dark:focus:text-primary-dark border-b-2 {{ 'border-text dark:border-text-dark' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) else 'border-background dark:border-background-dark' }}"
+        <a class="font-medium whitespace-nowrap text-lg hover:text-primary focus:text-primary dark:hover:text-primary-light dark:focus:text-primary-light border-b-2 {{ 'border-text dark:border-text-dark' if (entry.url in page.url and entry.url != '/') or (entry.url == page.url) else 'border-background dark:border-background-dark' }}"
             href="{{ entry.url | url }}">{{ entry.title }}</a>
         {%- endfor %}
         <a title="Link to GitHub" class="flex-shrink-0 w-6 h-6 mb-[2px]" href="{{ metadata.github_url }}">

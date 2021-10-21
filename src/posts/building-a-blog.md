@@ -7,9 +7,9 @@ tags:
   - Writing
 ---
 
-[toc]
-
 If you’ve made it here, welcome! I like to think of this as the grand opening for my new blog, but the site itself has been around a bit longer. I started this project almost six months ago and have been whittling away at it ever since. While most of the underlying code has been “done” for a while now, it’s taken a bit to actually start writing. For anyone who saw all the placeholder posts that were here before: _oh well_.
+
+{% toc %}
 
 ## Why a Website?
 

@@ -1,16 +1,16 @@
 {
   "name": "personal-website-v3",
   "version": "1.0.0",
-  "description": "",
+  "description": "William Svoboda's personal website and portfolio.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build",
     "dev": "NODE_ENV=development npm-run-all clean --parallel dev:*",
-    "dev:tailwind": "tailwindcss -i style.css -o build/style.css -w",
+    "dev:tailwind": "tailwindcss --postcss -i src/style.css -o build/static/styles/style.css --watch",
     "dev:eleventy": "ELEVENTY_ENV=development npx @11ty/eleventy --serve --quiet",
     "build": "NODE_ENV=production npm-run-all clean --parallel build:*",
-    "build:postcss": "postcss style.css -o build/style.css",
+    "build:postcss": "tailwindcss --postcss -i src/style.css -o build/static/styles/style.css --minify",
     "build:eleventy": "ELEVENTY_ENV=production npx @11ty/eleventy"
   },
   "repository": {
@@ -18,8 +18,8 @@
     "url": "git+https://github.com/thisstillwill/Personal-Website-V3.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "William Svoboda",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/thisstillwill/Personal-Website-V3/issues"
   },
@@ -30,22 +30,22 @@
     "@11ty/eleventy-navigation": "^0.2.0",
     "@11ty/eleventy-plugin-rss": "^1.1.2",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.1",
+    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.5",
     "cssnano": "^5.0.2",
     "luxon": "^1.27.0",
-    "npm-run-all": "^4.1.5",
-    "postcss": "^8.2.15",
-    "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.1.2"
-  },
-  "dependencies": {
-    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "markdown-it": "^10.0.0",
     "markdown-it-anchor": "^8.3.0",
+    "markdown-it-attrs": "^4.1.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "markdown-it-toc-done-right": "^4.2.0"
+    "markdown-it-toc-done-right": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.15",
+    "postcss-cli": "^8.3.1",
+    "postcss-import": "^14.0.2",
+    "tailwindcss": "^2.1.2"
   }
 }

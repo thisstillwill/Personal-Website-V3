@@ -17,7 +17,7 @@ tags:
 | Specification        | [Download PDF](../../static/documents/shadow-defend-specification.pdf)    |
 | Code                 | [Repo Link](https://github.com/thisstillwill/SWEN20003-S1-2020-Project-2) |
 
-[toc]
+{% toc %}
 
 ## Introduction
 

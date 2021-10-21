@@ -11,6 +11,7 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItMath = require("@iktakahiro/markdown-it-katex");
 const markdownItSup = require("markdown-it-sup");
 const markdownItSub = require("markdown-it-sub");
+const markdownItAttrs = require("markdown-it-attrs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 // Image shortcode using eleventy-img
@@ -126,6 +127,11 @@ module.exports = function (eleventyConfig) {
   // === Liquid needed if `markdownTemplateEngine` **isn't** changed from Eleventy default
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
+  // Post TOC
+  eleventyConfig.addShortcode("toc", () => {
+    return `<h2>Table of Contents</h2>\n\n[[toc]]`;
+  });
+
   // Hero banner
   eleventyConfig.addPairedShortcode(
     "hero",
@@ -235,7 +241,6 @@ module.exports = function (eleventyConfig) {
 
   // Pass through static files to output
   eleventyConfig.addPassthroughCopy("./src/static");
-  eleventyConfig.addPassthroughCopy("./src/*.css");
   eleventyConfig.addPassthroughCopy("./src/fonts");
 
   // Customize Markdown library and settings:
@@ -258,13 +263,14 @@ module.exports = function (eleventyConfig) {
     slugify: eleventyConfig.getFilter("slug"),
   });
   markdownLibrary.use(markdownItToc, {
-    level: [2, 3, 4],
+    level: [2, 3],
     slugify: eleventyConfig.getFilter("slug"),
   });
   markdownLibrary.use(markdownItFootnote);
-  markdownLibrary.use(markdownItMath);
+  markdownLibrary.use(markdownItMath, {});
   markdownLibrary.use(markdownItSup);
   markdownLibrary.use(markdownItSub);
+  markdownLibrary.use(markdownItAttrs);
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)
