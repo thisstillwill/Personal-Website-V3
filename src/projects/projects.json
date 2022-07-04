@@ -1,7 +1,5 @@
 {
-    "layout": "page.njk",
-    "permalink": "/projects/{{ title | slug }}/",
-    "tags": [
-        "projects"
-    ]
+  "layout": "page.njk",
+  "permalink": "/projects/{{ title | slugify }}/",
+  "tags": ["projects"]
 }

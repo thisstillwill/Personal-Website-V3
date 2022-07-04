@@ -1,7 +1,5 @@
 {
-    "layout": "page.njk",
-    "permalink": "/posts/{{ title | slug }}/",
-    "tags": [
-        "posts"
-    ]
+  "layout": "page.njk",
+  "permalink": "/posts/{{ title | slugify }}/",
+  "tags": ["posts"]
 }

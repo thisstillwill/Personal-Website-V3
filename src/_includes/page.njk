@@ -4,20 +4,20 @@ layout: base.njk
 <article>
     {% hero %}
         <h1 class="sm:text-center">{{ title }}</h1>
+        {% if tags %}
         <p class="mt-2 font-mono text-sm md:mt-4 md:text-base sm:text-center">
-            {% if tags %}
             {% if tags.includes("posts") %}Posted <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
             {% elif tags.includes("projects") %}Completed <time datetime="{{ page.date | dateYear }}">{{ page.date | dateYear }}</time>
             {% endif %}
             {% if (tags | filterTagList).length > 0 %}
             ·
             {%- for tag in tags | filterTagList -%}
-            {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
+            {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset -%}
             <a href="{{ tagUrl | url }}"> <span class="inline-block hover:underline focus:underline">#{{ tag }}</span>{{ ',' if loop.index < (tags | filterTagList).length }}</a>
             {%- endfor %}
             {% endif %}
-            {% endif %}
         </p>
+        {% endif %}
     {% endhero %}
     <div class="px-6 mx-auto mt-12 prose prose-blue lg:prose-lg dark:prose-light">
         {{ content | safe }}

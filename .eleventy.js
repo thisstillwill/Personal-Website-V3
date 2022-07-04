@@ -9,9 +9,9 @@ const fs = require("fs");
 const path = require("path");
 
 // Access utilities
-const filters = require("./src/utils/filters");
+const filters = require("./src/utils/filters.js");
 const components = require("./src/utils/components.js");
-const markdownLibrary = require("./src/utils/markdown");
+const markdownLibrary = require("./src/utils/markdown.js");
 
 const IS_PRODUCTION = process.env.ELEVENTY_ENV === "production";
 

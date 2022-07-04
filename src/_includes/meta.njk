@@ -20,6 +20,9 @@
 <!-- Specify canonical link for search engines -->
 <link rel="canonical" href="{{ metadata.base_url }}{{ page.url }}" />
 
+<!-- Site generator metadata -->
+<meta name="generator" content="{{ eleventy.generator }}">
+
 <!-- Social media metadata -->
 <meta property="og:title" content="{{ title or metadata.title }}" />
 <meta property="og:description" content="{{ description or metadata.description }}" />
@@ -27,9 +30,9 @@
 <meta property="og:locale" content="en_US" />
 <meta property="og:type" content="website" />
 {% if tags and tags.includes("posts") %}
-<meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
-<meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
-<meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slug }}-preview.jpeg" />
+<meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slugify }}-preview.jpeg" />
+<meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slugify }}-preview.jpeg" />
+<meta name="twitter:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slugify }}-preview.jpeg" />
 {% else %}
 <meta property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />
 <meta property="og:image:secure_url" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/default.jpeg" />

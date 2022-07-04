@@ -6,6 +6,7 @@ const markdownItMath = require("@iktakahiro/markdown-it-katex");
 const markdownItSup = require("markdown-it-sup");
 const markdownItSub = require("markdown-it-sub");
 const markdownItAttrs = require("markdown-it-attrs");
+const slugify = require("slugify");
 
 // Customize Markdown library and settings:
 const markdownLibrary = markdownIt({
@@ -23,10 +24,12 @@ const markdownLibrary = markdownIt({
       class: "direct-link",
       symbol: "#",
       level: [2, 3, 4],
+      slugify: slugify,
     }),
   })
   .use(markdownItToc, {
     level: [2, 3],
+    slugify: slugify,
   })
   .use(markdownItFootnote)
   .use(markdownItMath, {})

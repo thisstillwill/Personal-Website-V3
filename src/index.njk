@@ -43,7 +43,7 @@ eleventyNavigation:
 {% sectionContainer "All Tags" %}
 <ul class="flex flex-wrap max-w-xl mt-8">
   {% for tag in collections.tagList | filterTagList %}
-  {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
+  {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
   <li class="mb-2 mr-2">
     <a href="{{ tagUrl | url }}" class="inline-flex px-2 py-1 text-sm font-medium border-2 rounded-md border-primary bg-primary text-background whitespace-nowrap hover:bg-background hover:text-primary focus:bg-background focus:text-primary dark:bg-primary-dark dark:border-primary-dark dark:hover:bg-background-dark dark:hover:text-primary-dark dark:focus:bg-background-dark dark:focus:text-primary-dark dark:text-text-dark">{{ tag }}</a>
   </li>
