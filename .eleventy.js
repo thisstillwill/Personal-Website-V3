@@ -50,7 +50,7 @@ async function imageShortcode(src, alt) {
               <picture>
                 ${Object.values(metadata)
                   .map((imageFormat) => {
-                    return `  <source type="${
+                    return `<source type="${
                       imageFormat[0].sourceType
                     }" srcset="${imageFormat
                       .map((entry) => entry.srcset)

@@ -27,7 +27,7 @@
 <meta property="og:title" content="{{ title or metadata.title }}" />
 <meta property="og:description" content="{{ description or metadata.description }}" />
 <meta property="og:url" content="{{ metadata.base_url }}{{ page.url }}" />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content="{{ metadata.locale }}">
 <meta property="og:type" content="website" />
 {% if tags and tags.includes("posts") %}
 <meta name="image" property="og:image" content="{{ metadata.base_url }}{{ metadata.social_images_url }}/{{ title | slugify }}-preview.jpeg" />
