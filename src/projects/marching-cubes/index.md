@@ -15,7 +15,7 @@ katex: true
 | -------------------- | ------------------------------------------------------------------------- |
 | Title                | “Improving the Marching Cubes Algorithm for Use in Deformable 3D Terrain” |
 | Language             | C#                                                                        |
-| Report               | [Download PDF](../../static/documents/marching-cubes-report.pdf)          |
+| Report               | [Download PDF](marching-cubes-report.pdf)                                 |
 | Code                 | [Repo Link](https://github.com/thisstillwill/IW-Fall-2020)                |
 
 {% toc %}
@@ -42,6 +42,6 @@ To make the marching cubes algorithm work interactively, it was a matter of re-e
 
 ## Final Thoughts
 
-This project was my first real foray into computer graphics. Despite the difficulties I faced with generating meshes in Unity and understanding the logic behind marching cubes, the wealth of explanations available online made the task much more manageable. There are certainly many improvements I could make to the final code—a proper chunking system being one of them—and I would love to return one day to this project. It was also an excellent opportunity to improve my technical writing skills, as the [written final report](../../static/documents/marching-cubes-report.pdf) I produced was the first time I had ever documented a project in detail.
+This project was my first real foray into computer graphics. Despite the difficulties I faced with generating meshes in Unity and understanding the logic behind marching cubes, the wealth of explanations available online made the task much more manageable. There are certainly many improvements I could make to the final code—a proper chunking system being one of them—and I would love to return one day to this project. It was also an excellent opportunity to improve my technical writing skills, as the [written final report](marching-cubes-report.pdf) I produced was the first time I had ever documented a project in detail.
 
 _The source code for this project and instructions on how to run the final application are available online at <https://github.com/thisstillwill/IW-Fall-2020>._

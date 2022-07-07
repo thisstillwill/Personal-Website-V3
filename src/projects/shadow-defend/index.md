@@ -14,7 +14,7 @@ tags:
 | -------------------- | ------------------------------------------------------------------------- |
 | Title                | _Shadow Defend_                                                           |
 | Language             | Java                                                                      |
-| Specification        | [Download PDF](../../static/documents/shadow-defend-specification.pdf)    |
+| Specification        | [Download PDF](shadow-defend-specification.pdf)                           |
 | Code                 | [Repo Link](https://github.com/thisstillwill/SWEN20003-S1-2020-Project-2) |
 
 {% toc %}
@@ -27,7 +27,7 @@ The final assignment involved a large project that would apply what we had learn
 
 ## Designing the Game
 
-The actual assignment was split into two parts. The first task was to produce a class design that demonstrated our plan for the game’s implementation. This took the form of a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) diagram that modeled each entity in the game and the relationships between them ([download PDF](../../static/documents/shadow-defend-uml.pdf)). While I did not follow this plan exactly, I found that it helped me anticipate many of the challenges that would come up during implementation.
+The actual assignment was split into two parts. The first task was to produce a class design that demonstrated our plan for the game’s implementation. This took the form of a [UML](https://en.wikipedia.org/wiki/Unified_Modeling_Language) diagram that modeled each entity in the game and the relationships between them ([download PDF](shadow-defend-uml.pdf)). While I did not follow this plan exactly, I found that it helped me anticipate many of the challenges that would come up during implementation.
 
 ## Implementing the Game
 

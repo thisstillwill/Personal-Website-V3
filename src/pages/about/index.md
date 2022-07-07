@@ -13,11 +13,11 @@ My name is William Svoboda, but you can call me Will 😉. I’m a senior at Pri
 
 I’m especially interested in the Web and projects that combine technical and visual challenges. Over the years that’s meant exploring game development, web applications, computer graphics, and more. When I’m not in school you might find me listening to new wave music, watching YouTube film analyses, or playing games from 10 years ago.
 
-This website is my space to [write](/posts) and talk about my [work](/projects). I also have a [résumé](../static/documents/resume.pdf) and am actively looking for new opportunities.
+This website is my space to [write](/posts) and talk about my [work](/projects). I also have a [résumé](resume.pdf) and am actively looking for new opportunities.
 
 ## Say Hello
 
-The best way to reach me is by email at `wsvoboda[at]princeton.edu`. I'm down to chat about _anything_, whether it’s for work or just for fun. You can also find me on social media at any of the links below.
+The best way to reach me is by email at `wcsvoboda[at]gmail.com`. I'm down to chat about _anything_, whether it’s for work or just for fun. You can also find me on social media at any of the links below.
 
 ## Follow Me
 

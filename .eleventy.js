@@ -3,6 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginImage = require("@11ty/eleventy-img");
+const pluginPageAssets = require("eleventy-plugin-page-assets");
 
 // Work with file system
 const fs = require("fs");
@@ -21,7 +22,7 @@ async function imageShortcode(src, alt) {
   // Generate optimized images only in production
   if (IS_PRODUCTION) {
     let sizes = "(min-width: 1024px) 100vw, 50vw";
-    let srcPrefix = `./src/static/images/`;
+    let srcPrefix = "./build/static/images/";
     src = srcPrefix + src;
     console.log(`Generating image(s) from:  ${src}`);
     if (alt === undefined) {
@@ -68,11 +69,10 @@ async function imageShortcode(src, alt) {
               <figcaption>${alt}</figcaption>
             </figure>`;
   } else {
-    urlPath = "/static/images/" + src;
     return `<figure>
               <picture>
                 <img
-                    src="${urlPath}"
+                    src="${src}"
                     alt="${alt}"
                     loading="lazy"
                     decoding="async">
@@ -87,46 +87,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginRss);
+  eleventyConfig.addPlugin(pluginPageAssets, {
+    mode: "directory",
+    postsMatching: "src/{pages,posts,projects}/*/*.md",
+    assetsMatching: "*",
+  });
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);
 
-  // Generate social preview images in production
-  // https://bnijenhuis.nl/notes/2021-05-10-automatically-generate-open-graph-images-in-eleventy/
-  eleventyConfig.on("afterBuild", () => {
-    if (IS_PRODUCTION) {
-      const socialPreviewImagesDir = "build/static/images/social/";
-      fs.readdir(socialPreviewImagesDir, function (err, files) {
-        if (files.length > 0) {
-          files.forEach(function (filename) {
-            if (filename.endsWith(".svg")) {
-              let imageUrl = socialPreviewImagesDir + filename;
-              console.log(`Generating image(s) from:  ${imageUrl}`);
-              pluginImage(imageUrl, {
-                formats: ["jpeg"],
-                outputDir: "./" + socialPreviewImagesDir,
-                filenameFormat: function (id, src, width, format, options) {
-                  let outputFilename = filename.substring(
-                    0,
-                    filename.length - 4
-                  );
-
-                  return `${outputFilename}.${format}`;
-                },
-              });
-            }
-          });
-        }
-      });
-    }
-  });
-
   // Register image shortcode
-  // eleventyConfig.addShortcode("image", imageShortcode);
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addLiquidShortcode("image", imageShortcode);
-  // === Liquid needed if `markdownTemplateEngine` **isn't** changed from Eleventy default
-  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
   // Filters
   Object.keys(filters).forEach((filterName) => {
@@ -154,8 +125,14 @@ module.exports = function (eleventyConfig) {
   });
 
   // Pass through static files to output
-  eleventyConfig.addPassthroughCopy("./src/static");
-  eleventyConfig.addPassthroughCopy("./src/fonts");
+  eleventyConfig.addPassthroughCopy("src/static");
+
+  // Eleventy's image plugin does not support co-located images out of the box, so we copy all images to a single folder in production
+  if (IS_PRODUCTION) {
+    eleventyConfig.addPassthroughCopy({
+      "src/{pages,posts,projects}/**/*.{png,jpeg,webp}": "/static/images",
+    });
+  }
 
   // Markdown Parsing
   eleventyConfig.setLibrary("md", markdownLibrary);

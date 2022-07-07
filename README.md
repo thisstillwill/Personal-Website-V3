@@ -1,3 +1,3 @@
-# [will.cx](will.cx)
+# [will.cx](https://will.cx)
 
-This repository holds the source code for my personal website, built with Eleventy and Tailwind (and a whole lot of other dependencies 😵).
+This repository holds the source code for my personal website, built with Eleventy and Tailwind (and just a _few_ other dependencies 😵).

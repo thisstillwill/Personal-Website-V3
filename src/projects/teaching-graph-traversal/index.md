@@ -10,12 +10,12 @@ tags:
 
 {% image "teaching-graph-traversal.png", "Screenshot of the visualizer running a demonstration of breadth-first search" %}
 
-| Project&nbsp;Summary |                                                                     |
-| -------------------- | ------------------------------------------------------------------- |
-| Title                | “Teaching Graph Traversal Visually”                                 |
-| Language             | Python                                                              |
-| Report               | [Download PDF](../../static/documents/teaching-graph-traversal.pdf) |
-| Code                 | [Repo Link](https://github.com/thisstillwill/IW-Spring-2021)        |
+| Project&nbsp;Summary |                                                              |
+| -------------------- | ------------------------------------------------------------ |
+| Title                | “Teaching Graph Traversal Visually”                          |
+| Language             | Python                                                       |
+| Report               | [Download PDF](teaching-graph-traversal-report.pdf)          |
+| Code                 | [Repo Link](https://github.com/thisstillwill/IW-Spring-2021) |
 
 {% toc %}
 
@@ -23,7 +23,7 @@ tags:
 
 Princeton requires all students in its A.B. (or Bachelor of Arts) program to complete independent work during their junior and senior year. As a junior in the computer science department, I completed two separate junior papers during each semester.
 
-For my spring junior paper, I enrolled in an independent work seminar focused on the teaching of computer science. While each student worked on their own project, the seminar met together once a week in order to discuss their progress and ideas. I had worked by myself the [previous semester](../improving-the-marching-cubes-algorithm), so it was a nice change of pace to be able to talk with others about my project. I decided to create an assignment that would teach students the [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) (BFS) and [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) (DFS) algorithms.
+For my spring junior paper, I enrolled in an independent work seminar focused on the teaching of computer science. While each student worked on their own project, the seminar met together once a week in order to discuss their progress and ideas. I had worked by myself the [previous semester](../marching-cubes/), so it was a nice change of pace to be able to talk with others about my project. I decided to create an assignment that would teach students the [breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search) (BFS) and [depth-first search](https://en.wikipedia.org/wiki/Depth-first_search) (DFS) algorithms.
 
 ## Visualizing Graph Algorithms
 
@@ -70,7 +70,7 @@ git push -u origin master
 
 ## Evaluation
 
-I was able to get nine real Princeton students to complete my assignment. Feedback was collected in a file called `submission.md` and included with their final repository code. Overall, I was pleasantly surprised at the reception I got. While many participants said the assignment was short (under two hours), they appreciated it as a refresher to graph algorithms. Almost everyone found the instructions clear and appreciated being able to visualize each algorithm. A full analysis of their feedback and the project as a whole is included in my [final written report](../../static/documents/teaching-graph-traversal.pdf).
+I was able to get nine real Princeton students to complete my assignment. Feedback was collected in a file called `submission.md` and included with their final repository code. Overall, I was pleasantly surprised at the reception I got. While many participants said the assignment was short (under two hours), they appreciated it as a refresher to graph algorithms. Almost everyone found the instructions clear and appreciated being able to visualize each algorithm. A full analysis of their feedback and the project as a whole is included in my [final written report](teaching-graph-traversal-report.pdf).
 
 Overall, I appreciated the chance to do something like this. Many times in my Princeton career have I wondered about the teaching aspect of my courses. This project was a chance for me to be the professor for a change.
 
