@@ -9,7 +9,7 @@ tags:
 katex: true
 ---
 
-{% image "marching-cubes.png", "Marching cubes used to spell “COS”, the abbreviation for computer science at Princeton University" %}
+{% image "marching-cubes.png", "Marching cubes used to spell “COS,” the abbreviation for computer science at Princeton University" %}
 
 | Project&nbsp;Summary |                                                                           |
 | -------------------- | ------------------------------------------------------------------------- |

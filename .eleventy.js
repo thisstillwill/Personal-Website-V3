@@ -21,51 +21,38 @@ const IS_PRODUCTION = process.env.ELEVENTY_ENV === "production";
 async function imageShortcode(src, alt) {
   // Generate optimized images only in production
   if (IS_PRODUCTION) {
-    let sizes = "(min-width: 1024px) 100vw, 50vw";
-    let srcPrefix = "./build/static/images/";
-    src = srcPrefix + src;
-    console.log(`Generating image(s) from:  ${src}`);
-    if (alt === undefined) {
-      // Throw an error on missing alt (alt="" works okay)
-      throw new Error(`Missing \`alt\` on responsive image from: ${src}`);
-    }
-    let metadata = await pluginImage(src, {
-      widths: [600, 900, 1500],
-      formats: ["webp", "jpeg"],
-      urlPath: "/static/images/",
-      outputDir: "./build/static/images/",
-      /* =====
-      Now we'll make sure each resulting file's name will
-      make sense to you. **This** is why you need
-      that `path` statement mentioned earlier.
-      ===== */
+    const sizes = "(min-width: 1024px) 100vw, 50vw";
+    const widths = [600, 900, 1500];
+    const formats = ["webp", "jpeg"];
+    const imagePathStem = this.page.filePathStem.substring(
+      0,
+      this.page.filePathStem.indexOf("index")
+    );
+    const imageSrc = "./src" + imagePathStem + src;
+    const outputDir = "./build" + this.page.url;
+    const urlPath = "";
+    const options = {
+      widths: widths,
+      formats: formats,
+      urlPath: urlPath,
+      outputDir: outputDir,
       filenameFormat: function (id, src, width, format, options) {
         const extension = path.extname(src);
         const name = path.basename(src, extension);
         return `${name}-${width}w.${format}`;
       },
-    });
-    let lowsrc = metadata.jpeg[0];
-    let highsrc = metadata.jpeg[metadata.jpeg.length - 1];
+    };
+    console.log(`Generating image(s) from:  ${imageSrc}`);
+    const metadata = await pluginImage(imageSrc, options);
+    const imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+    };
+    const imageHTML = pluginImage.generateHTML(metadata, imageAttributes);
     return `<figure>
-              <picture>
-                ${Object.values(metadata)
-                  .map((imageFormat) => {
-                    return `<source type="${
-                      imageFormat[0].sourceType
-                    }" srcset="${imageFormat
-                      .map((entry) => entry.srcset)
-                      .join(", ")}" sizes="${sizes}">`;
-                  })
-                  .join("\n")}
-                <img
-                    src="${lowsrc.url}"
-                    width="${highsrc.width}"
-                    height="${highsrc.height}"
-                    alt="${alt}"
-                    loading="lazy"
-                    decoding="async">
-              </picture>
+              ${imageHTML}
               <figcaption>${alt}</figcaption>
             </figure>`;
   } else {
@@ -90,7 +77,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginPageAssets, {
     mode: "directory",
     postsMatching: "src/{pages,posts,projects}/*/*.md",
-    assetsMatching: "*",
+    assetsMatching: "*.jpg|*.jpeg|*.png|*.gif|*.mp4|*.webp|*.webm|*.pdf",
   });
 
   // https://www.11ty.dev/docs/data-deep-merge/
@@ -126,13 +113,6 @@ module.exports = function (eleventyConfig) {
 
   // Pass through static files to output
   eleventyConfig.addPassthroughCopy("src/static");
-
-  // Eleventy's image plugin does not support co-located images out of the box, so we copy all images to a single folder in production
-  if (IS_PRODUCTION) {
-    eleventyConfig.addPassthroughCopy({
-      "src/{pages,posts,projects}/**/*.{png,jpeg,webp}": "/static/images",
-    });
-  }
 
   // Markdown Parsing
   eleventyConfig.setLibrary("md", markdownLibrary);
