@@ -13,7 +13,7 @@ If you’ve made it here, welcome! I like to think of this as the grand opening 
 
 ## Why a Website?
 
-I’m not a stranger to personal websites. Over a year ago I launched my [first site](https://thisstillwill.github.io/Personal-Website-V1/), followed not long after by my [second](https://thisstillwill.github.io/Personal-Website-V2/). Both were simple, static pages that for the most part only used vanilla HTML and CSS. They listed the important stuff about me (my name, my résumé, and my contact info) and they got the job done. I wanted something more, however.
+I’m not a stranger to personal websites. Over a year ago I launched my [first site](https://thisstillwill.github.io/Personal-Website-V1/), followed not long after by my [second](https://thisstillwill.github.io/Personal-Website-V2/). Both were simple, static pages that for the most part only used vanilla HTML and CSS. They listed the important stuff about me (my name, my résumé, and my contact info) and they got the job done. I wanted something a little more substantial, however.
 
 There are a lot of reasons to want to make a personal website. Let’s start with one of the most popular: _owning your own content_. Every time we use Twitter, Tumblr, Facebook, or any other traditional social media, we lock ourselves in more and more to those platforms. That’s not necessarily a bad thing^[Any gripes about social media itself notwithstanding.]; I personally use the above services just about every day.
 

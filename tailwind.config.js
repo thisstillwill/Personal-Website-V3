@@ -46,14 +46,11 @@ module.exports = {
               strong: {
                 color: theme("colors.text.DEFAULT"),
               },
-              "ol > li::before": {
+              "li::marker": {
                 color: theme("colors.text.DEFAULT"),
               },
-              "ul > li::before": {
-                backgroundColor: theme("colors.text.DEFAULT"),
-              },
               hr: {
-                borderColor: theme("colors.text.DEFAULT"),
+                borderColor: theme("colors.border.DEFAULT"),
               },
               blockquote: {
                 color: theme("colors.text.DEFAULT"),
@@ -108,14 +105,11 @@ module.exports = {
               strong: {
                 color: theme("colors.text.dark"),
               },
-              "ol > li::before": {
+              "li::marker": {
                 color: theme("colors.text.dark"),
               },
-              "ul > li::before": {
-                backgroundColor: theme("colors.text.dark"),
-              },
               hr: {
-                borderColor: theme("colors.text.dark"),
+                borderColor: theme("colors.border.dark"),
               },
               blockquote: {
                 color: theme("colors.text.dark"),
