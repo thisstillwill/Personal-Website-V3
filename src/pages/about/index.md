@@ -9,9 +9,9 @@ eleventyNavigation:
 
 > Live, laugh, debug
 
-My name is William Svoboda, but you can call me Will 😉. As part of the Great Class of 2022, I graduated from Princeton University with a degree in computer science. I didn’t start programming until I was in college, but that hasn’t stopped my love for computing and all the things you can do with it.
+My name is William Svoboda, but you can call me Will 😉. I graduated from Princeton University with a degree in computer science as part of the Great Class of 2022. I didn’t start programming until I was in college, but that hasn’t stopped my love for computing and all the things you can do with it.
 
-I’m especially interested in the Web and projects that combine technical and visual challenges. Over the years that’s meant exploring game development, web applications, computer graphics, and more. When I’m not working, you might find me listening to new wave music, watching YouTube film analyses, or playing games from 10 years ago.
+I’m especially interested in the Web and projects that combine technical and visual challenges. Over the years, that’s meant exploring game development, web applications, computer graphics, and more. When I’m not working, you might find me listening to new wave music, watching YouTube film analyses, or playing games from 10 years ago.
 
 This website is my space to [write](/posts) and talk about my [work](/projects). I also have a [résumé](resume.pdf) and am actively looking for new opportunities.
 

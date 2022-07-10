@@ -23,9 +23,9 @@ const markdownLibrary = markdownIt({
       visuallyHiddenClass: "visually-hidden",
       class: "direct-link",
       symbol: "#",
-      level: [2, 3, 4],
-      slugify: slugify,
     }),
+    level: [2, 3, 4],
+    slugify: slugify,
   })
   .use(markdownItToc, {
     level: [2, 3],
