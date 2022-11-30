@@ -5,7 +5,6 @@ const markdownItFootnote = require("markdown-it-footnote");
 const markdownItMath = require("@iktakahiro/markdown-it-katex");
 const markdownItSup = require("markdown-it-sup");
 const markdownItSub = require("markdown-it-sub");
-const markdownItAttrs = require("markdown-it-attrs");
 const slugify = require("slugify");
 
 // Customize Markdown library and settings:
@@ -34,7 +33,6 @@ const markdownLibrary = markdownIt({
   .use(markdownItFootnote)
   .use(markdownItMath, {})
   .use(markdownItSup)
-  .use(markdownItSub)
-  .use(markdownItAttrs);
+  .use(markdownItSub);
 
 module.exports = markdownLibrary;
